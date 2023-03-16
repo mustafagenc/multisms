@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.NetGsm.Provider.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Twilio.Provider", "src\Providers\MultiSms.Twilio.Provider\MultiSms.Twilio.Provider.csproj", "{9AC88477-6B0E-4643-A698-949BD2F1136F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Twilio.Provider.Test", "tests\MultiSms.Twilio.Provider.Test\MultiSms.Twilio.Provider.Test.csproj", "{C40491AA-F935-490E-A88C-E357520B4C61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.IletiMerkezi.Provider.Test", "tests\MultiSms.IletiMerkezi.Provider.Test\MultiSms.IletiMerkezi.Provider.Test.csproj", "{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,14 @@ Global
 		{9AC88477-6B0E-4643-A698-949BD2F1136F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AC88477-6B0E-4643-A698-949BD2F1136F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AC88477-6B0E-4643-A698-949BD2F1136F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40491AA-F935-490E-A88C-E357520B4C61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40491AA-F935-490E-A88C-E357520B4C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40491AA-F935-490E-A88C-E357520B4C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40491AA-F935-490E-A88C-E357520B4C61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +86,8 @@ Global
 		{A527E7D2-96FD-4715-BEC6-776462FF54E6} = {2B4EC539-F892-4505-9352-8F07BE68B9EE}
 		{2ABED6A3-4A53-4D2D-B4D9-2A1CCB7E5F19} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
 		{9AC88477-6B0E-4643-A698-949BD2F1136F} = {2B4EC539-F892-4505-9352-8F07BE68B9EE}
+		{C40491AA-F935-490E-A88C-E357520B4C61} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
+		{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

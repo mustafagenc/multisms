@@ -7,7 +7,51 @@ using MultiSms.Twilio.Provider.Options;
 
 namespace MultiSms.Twilio.Provider;
 
-public class TwilioProvider : ITwilioProvider
+public partial class TwilioProvider : ITwilioProvider
+{
+
+    public SendingResult Send(MessageBody message)
+    {
+        try
+        {
+            CreateClient(message.ProviderData);
+
+            var twilioMessage = CreateMessage(message);
+
+            var result = MessageResource.Create(twilioMessage);
+
+            return BuildResultObject(result);
+        }
+        catch (Exception ex)
+        {
+            return SendingResult.Failure(Name).AddError(ex);
+        }
+    }
+
+    public async Task<SendingResult> SendAsync(MessageBody message, CancellationToken cancellationToken = default)
+    {
+        if (cancellationToken.IsCancellationRequested)
+            cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            CreateClient(message.ProviderData);
+
+            var twilioMessage = CreateMessage(message);
+
+            var result = await MessageResource.CreateAsync(twilioMessage);
+
+            return BuildResultObject(result);
+        }
+        catch (Exception ex)
+        {
+            return SendingResult.Failure(Name).AddError(ex);
+        }
+    }
+
+}
+
+public partial class TwilioProvider
 {
     public const string Name = "twilio";
 
@@ -119,44 +163,4 @@ public class TwilioProvider : ITwilioProvider
 
         return option;
     }
-
-    public SendingResult Send(MessageBody message)
-    {
-        try
-        {
-            CreateClient(message.ProviderData);
-
-            var twilioMessage = CreateMessage(message);
-
-            var result = MessageResource.Create(twilioMessage);
-
-            return BuildResultObject(result);
-        }
-        catch (Exception ex)
-        {
-            return SendingResult.Failure(Name).AddError(ex);
-        }
-    }
-
-    public async Task<SendingResult> SendAsync(MessageBody message, CancellationToken cancellationToken = default)
-    {
-        if (cancellationToken.IsCancellationRequested)
-            cancellationToken.ThrowIfCancellationRequested();
-
-        try
-        {
-            CreateClient(message.ProviderData);
-
-            var twilioMessage = CreateMessage(message);
-
-            var result = await MessageResource.CreateAsync(twilioMessage);
-
-            return BuildResultObject(result);
-        }
-        catch (Exception ex)
-        {
-            return SendingResult.Failure(Name).AddError(ex);
-        }
-    }
 }
-

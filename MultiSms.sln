@@ -1,37 +1,37 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1705.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms", "src\MultiSms\MultiSms.csproj", "{457B6816-A297-401D-ACB1-0FED048D8BE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms", "src\MultiSms\MultiSms.csproj", "{457B6816-A297-401D-ACB1-0FED048D8BE9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A79D0015-8F48-483D-B7C6-A864F25B0436}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8C7C6595-4007-4A6F-B09A-7204E5DE5F66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Test", "tests\MultiSms.Test\MultiSms.Test.csproj", "{FD71D75C-319D-4F96-9A35-51BAA70F66B4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{2B4EC539-F892-4505-9352-8F07BE68B9EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.NetGsm.Provider", "src\Providers\MultiSms.NetGsm.Provider\MultiSms.NetGsm.Provider.csproj", "{9C232ED2-2BC6-44AF-94D4-B501A12BD75D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.NetGsm.Provider", "src\Providers\MultiSms.NetGsm.Provider\MultiSms.NetGsm.Provider.csproj", "{9C232ED2-2BC6-44AF-94D4-B501A12BD75D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.IletiMerkezi.Provider", "src\Providers\MultiSms.IletiMerkezi.Provider\MultiSms.IletiMerkezi.Provider.csproj", "{A527E7D2-96FD-4715-BEC6-776462FF54E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.IletiMerkezi.Provider", "src\Providers\MultiSms.IletiMerkezi.Provider\MultiSms.IletiMerkezi.Provider.csproj", "{A527E7D2-96FD-4715-BEC6-776462FF54E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E7C22A7-3F99-4927-B481-6DAB5C008FD4}"
 	ProjectSection(SolutionItems) = preProject
-		LICENSE = LICENSE
-		README.md = README.md
 		common.props = common.props
 		icon.png = icon.png
+		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.NetGsm.Provider.Test", "tests\MultiSms.NetGsm.Provider.Test\MultiSms.NetGsm.Provider.Test.csproj", "{2ABED6A3-4A53-4D2D-B4D9-2A1CCB7E5F19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.Twilio.Provider", "src\Providers\MultiSms.Twilio.Provider\MultiSms.Twilio.Provider.csproj", "{9AC88477-6B0E-4643-A698-949BD2F1136F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Twilio.Provider", "src\Providers\MultiSms.Twilio.Provider\MultiSms.Twilio.Provider.csproj", "{9AC88477-6B0E-4643-A698-949BD2F1136F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Test", "tests\MultiSms.Test\MultiSms.Test.csproj", "{5F924563-3915-45CE-B1B2-438B0215B6A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Twilio.Provider.Test", "tests\MultiSms.Twilio.Provider.Test\MultiSms.Twilio.Provider.Test.csproj", "{C40491AA-F935-490E-A88C-E357520B4C61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Twilio.Provider.Test", "tests\MultiSms.Twilio.Provider.Test\MultiSms.Twilio.Provider.Test.csproj", "{3375C99D-0993-4055-B0A0-CBDC9FB14814}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.IletiMerkezi.Provider.Test", "tests\MultiSms.IletiMerkezi.Provider.Test\MultiSms.IletiMerkezi.Provider.Test.csproj", "{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.NetGsm.Provider.Test", "tests\MultiSms.NetGsm.Provider.Test\MultiSms.NetGsm.Provider.Test.csproj", "{B3E89499-8E6C-43F4-8A09-9D190C3F4311}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.IletiMerkezi.Provider.Test", "tests\MultiSms.IletiMerkezi.Provider.Test\MultiSms.IletiMerkezi.Provider.Test.csproj", "{9D3DA7EC-6990-4206-A55E-D515C00E72FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +43,6 @@ Global
 		{457B6816-A297-401D-ACB1-0FED048D8BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{457B6816-A297-401D-ACB1-0FED048D8BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{457B6816-A297-401D-ACB1-0FED048D8BE9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD71D75C-319D-4F96-9A35-51BAA70F66B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD71D75C-319D-4F96-9A35-51BAA70F66B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD71D75C-319D-4F96-9A35-51BAA70F66B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD71D75C-319D-4F96-9A35-51BAA70F66B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C232ED2-2BC6-44AF-94D4-B501A12BD75D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C232ED2-2BC6-44AF-94D4-B501A12BD75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C232ED2-2BC6-44AF-94D4-B501A12BD75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,51 +51,54 @@ Global
 		{A527E7D2-96FD-4715-BEC6-776462FF54E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A527E7D2-96FD-4715-BEC6-776462FF54E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A527E7D2-96FD-4715-BEC6-776462FF54E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2ABED6A3-4A53-4D2D-B4D9-2A1CCB7E5F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2ABED6A3-4A53-4D2D-B4D9-2A1CCB7E5F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2ABED6A3-4A53-4D2D-B4D9-2A1CCB7E5F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2ABED6A3-4A53-4D2D-B4D9-2A1CCB7E5F19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9AC88477-6B0E-4643-A698-949BD2F1136F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9AC88477-6B0E-4643-A698-949BD2F1136F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AC88477-6B0E-4643-A698-949BD2F1136F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AC88477-6B0E-4643-A698-949BD2F1136F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C40491AA-F935-490E-A88C-E357520B4C61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C40491AA-F935-490E-A88C-E357520B4C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C40491AA-F935-490E-A88C-E357520B4C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C40491AA-F935-490E-A88C-E357520B4C61}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F924563-3915-45CE-B1B2-438B0215B6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F924563-3915-45CE-B1B2-438B0215B6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F924563-3915-45CE-B1B2-438B0215B6A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F924563-3915-45CE-B1B2-438B0215B6A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3375C99D-0993-4055-B0A0-CBDC9FB14814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3375C99D-0993-4055-B0A0-CBDC9FB14814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3375C99D-0993-4055-B0A0-CBDC9FB14814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3375C99D-0993-4055-B0A0-CBDC9FB14814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E89499-8E6C-43F4-8A09-9D190C3F4311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E89499-8E6C-43F4-8A09-9D190C3F4311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E89499-8E6C-43F4-8A09-9D190C3F4311}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E89499-8E6C-43F4-8A09-9D190C3F4311}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D3DA7EC-6990-4206-A55E-D515C00E72FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D3DA7EC-6990-4206-A55E-D515C00E72FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D3DA7EC-6990-4206-A55E-D515C00E72FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D3DA7EC-6990-4206-A55E-D515C00E72FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {573398AF-A230-47CC-B12C-7065487D4B10}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{457B6816-A297-401D-ACB1-0FED048D8BE9} = {A79D0015-8F48-483D-B7C6-A864F25B0436}
-		{FD71D75C-319D-4F96-9A35-51BAA70F66B4} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
 		{2B4EC539-F892-4505-9352-8F07BE68B9EE} = {A79D0015-8F48-483D-B7C6-A864F25B0436}
 		{9C232ED2-2BC6-44AF-94D4-B501A12BD75D} = {2B4EC539-F892-4505-9352-8F07BE68B9EE}
 		{A527E7D2-96FD-4715-BEC6-776462FF54E6} = {2B4EC539-F892-4505-9352-8F07BE68B9EE}
-		{2ABED6A3-4A53-4D2D-B4D9-2A1CCB7E5F19} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
 		{9AC88477-6B0E-4643-A698-949BD2F1136F} = {2B4EC539-F892-4505-9352-8F07BE68B9EE}
-		{C40491AA-F935-490E-A88C-E357520B4C61} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
-		{ABFF1DFF-EB2A-4C3A-8178-A40693C994FE} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
+		{5F924563-3915-45CE-B1B2-438B0215B6A9} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
+		{3375C99D-0993-4055-B0A0-CBDC9FB14814} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
+		{B3E89499-8E6C-43F4-8A09-9D190C3F4311} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
+		{9D3DA7EC-6990-4206-A55E-D515C00E72FA} = {8C7C6595-4007-4A6F-B09A-7204E5DE5F66}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {573398AF-A230-47CC-B12C-7065487D4B10}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
-		$0.TextStylePolicy = $2
+		$0.TextStylePolicy = $4
 		$2.FileWidth = 80
 		$2.TabsToSpaces = True
 		$2.scope = text/x-csharp
 		$0.CSharpFormattingPolicy = $3
 		$3.scope = text/x-csharp
-		$0.TextStylePolicy = $4
 		$4.FileWidth = 80
 		$4.TabsToSpaces = True
 		$4.scope = text/plain

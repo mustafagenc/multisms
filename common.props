@@ -3,7 +3,6 @@
 	<PropertyGroup>
 		<Version>1.0.1</Version>
 		<NoWarn>$(NoWarn);CS1591</NoWarn>
-		<PackageLicenseExpression>GNU General Public License v3.0</PackageLicenseExpression>
 		<RepositoryUrl>https://github.com/mustafagenc/multisms</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>sms, sms provider, netgsm</PackageTags>

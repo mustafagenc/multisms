@@ -1,10 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project>
 	<PropertyGroup>
-		<Version>1.0.0</Version>
-		<LangVersion>latest</LangVersion>
-	</PropertyGroup>
-	<PropertyGroup>
+		<Version>1.0.1</Version>
 		<NoWarn>$(NoWarn);CS1591</NoWarn>
 		<PackageLicenseExpression>GNU General Public License v3.0</PackageLicenseExpression>
 		<PackageLicenseUrl>https://github.com/mustafagenc/multisms/blob/main/LICENSE</PackageLicenseUrl>

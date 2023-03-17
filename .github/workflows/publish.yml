@@ -2,9 +2,10 @@ name: Publish to Github
 
 on:
   push:
-    branches: [ main ]
+    branches: [ release ]
+    
   pull_request:
-    branches: [ main ]
+    branches: [ release ]
 
 jobs:
   build:
@@ -27,9 +28,9 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
 
-    - name: Build and Generate NuGet Package
+    - name: Pack
       run: dotnet pack -c Release -o out
 
-    - name: Push to GitHub Registry
+    - name: Push
       run: |
         dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/mustafagenc/index.json

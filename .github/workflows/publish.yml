@@ -32,4 +32,4 @@ jobs:
 
     - name: Push to GitHub Registry
       run: |
-        dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols true --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/mustafagenc/index.json
+        dotnet nuget push ./out/*.nupkg -n true --skip-duplicate --no-symbols true --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/mustafagenc/index.json

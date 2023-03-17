@@ -19,7 +19,7 @@ jobs:
         dotnet-version: '7.0.x'
         source-url: https://nuget.pkg.github.com/mustafagenc/index.json
       env:
-        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
         
     - name: Restore
       run: dotnet restore

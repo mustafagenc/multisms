@@ -32,5 +32,4 @@ jobs:
 
     - name: Push to GitHub Registry
       run: |
-        dotnet nuget add source --username mustafagenc --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mustafagenc/index.json"
         dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols true

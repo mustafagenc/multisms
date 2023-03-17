@@ -32,4 +32,5 @@ jobs:
 
     - name: Push to GitHub Registry
       run: |
+        dotnet nuget setapikey ${NUGET_AUTH_TOKEN} -Source https://nuget.pkg.github.com/mustafagenc/index.json
         dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols true

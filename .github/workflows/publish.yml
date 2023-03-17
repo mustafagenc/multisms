@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '7.0.x'
         source-url: https://nuget.pkg.github.com/mustafagenc/index.json
@@ -32,4 +32,5 @@ jobs:
 
     - name: Push to GitHub Registry
       run: |
+        dotnet nuget add source --username mustafagenc --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/mustafagenc/index.json"
         dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols true

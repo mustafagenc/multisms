@@ -14,12 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '7.0.x'
         source-url: https://nuget.pkg.github.com/mustafagenc/index.json
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Restore
       run: dotnet restore
@@ -31,4 +31,5 @@ jobs:
       run: dotnet pack -c Release -o out
 
     - name: Push to GitHub Registry
-      run: dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols true
+      run: |
+        dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols true

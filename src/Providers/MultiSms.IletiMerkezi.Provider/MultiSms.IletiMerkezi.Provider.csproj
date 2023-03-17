@@ -1,22 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Models\" />
-    <None Remove="Options\" />
-    <None Remove="Extensions\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Options\" />
-    <Folder Include="Extensions\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\MultiSms\MultiSms.csproj" />
-  </ItemGroup>
+	<Import Project="..\..\..\common.props">
+	</Import>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="Models\" />
+		<None Remove="Options\" />
+		<None Remove="Extensions\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Models\" />
+		<Folder Include="Options\" />
+		<Folder Include="Extensions\" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\MultiSms\MultiSms.csproj" />
+	</ItemGroup>
 </Project>

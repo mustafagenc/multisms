@@ -1,13 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MultiSms;
 using MultiSms.Interfaces;
 using MultiSms.Models;
 
-namespace MultiSms.DependencyInjection;
+namespace Microsoft.Extensions.DependencyInjection;
 
 public static class Configurations
 {
     public static MultiSmsBuilder AddMultiSms(this IServiceCollection serviceCollection, string defaultProviderName)
-        => AddMultiSms(serviceCollection, options => options.DefaultProvider = defaultProviderName);
+    {
+        return AddMultiSms(serviceCollection, options => options.DefaultProvider = defaultProviderName);
+    }
 
     public static MultiSmsBuilder AddMultiSms(this IServiceCollection serviceCollection, Action<MultiSmsServiceOptions> config)
     {

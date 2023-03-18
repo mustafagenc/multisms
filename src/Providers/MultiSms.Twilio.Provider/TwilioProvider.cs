@@ -70,13 +70,13 @@ public partial class TwilioProvider
 
     private void CreateClient(IEnumerable<ProviderData> data)
     {
-        var userNameEdpData = data.GetData(CustomProviderData.Username);
-        var passwordEdpData = data.GetData(CustomProviderData.Password);
-        var accountSIdEdpData = data.GetData(CustomProviderData.AccountSID);
+        var userNameProviderData = data.GetData(CustomProviderData.Username);
+        var passwordProviderData = data.GetData(CustomProviderData.Password);
+        var accountSIdProviderData = data.GetData(CustomProviderData.AccountSID);
 
-        var userName = userNameEdpData.IsEmpty() ? _options.Username : userNameEdpData.GetValue<string>();
-        var password = passwordEdpData.IsEmpty() ? _options.Password : passwordEdpData.GetValue<string>();
-        var accountSid = accountSIdEdpData.IsEmpty() ? _options.AccountSID : accountSIdEdpData.GetValue<string>();
+        var userName = userNameProviderData.IsEmpty() ? _options.Username : userNameProviderData.GetValue<string>();
+        var password = passwordProviderData.IsEmpty() ? _options.Password : passwordProviderData.GetValue<string>();
+        var accountSid = accountSIdProviderData.IsEmpty() ? _options.AccountSID : accountSIdProviderData.GetValue<string>();
 
         if (!string.IsNullOrEmpty(accountSid) && !string.IsNullOrWhiteSpace(accountSid))
         {

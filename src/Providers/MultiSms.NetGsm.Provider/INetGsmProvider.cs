@@ -1,5 +1,4 @@
-﻿using System;
-using MultiSms.Interfaces;
+﻿using MultiSms.Interfaces;
 
 namespace MultiSms.NetGsm.Provider;
 

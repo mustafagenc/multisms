@@ -1,9 +1,10 @@
 ﻿using System.Text;
+using System.Xml.Serialization;
 using MultiSms.Interfaces;
 using MultiSms.Models;
 using MultiSms.NetGsm.Provider.Models;
 using MultiSms.NetGsm.Provider.Options;
-using Newtonsoft.Json;
+using MultiSms.Helpers;
 
 namespace MultiSms.NetGsm.Provider;
 
@@ -22,9 +23,9 @@ public partial class NetGsmProvider : INetGsmProvider
 
             using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) { Path = "sms/send/xml" }.Uri);
 
-            using var jsonContent = new StringContent(JsonConvert.SerializeObject(CreateMessage(message)), Encoding.UTF8, "application/json");
+            using var xmlContent = new StringContent(CreateMessage(message).Serialize(), Encoding.UTF8, "application/xml");
 
-            request.Content = jsonContent;
+            request.Content = xmlContent;
 
             using var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
 
@@ -66,11 +67,29 @@ public partial class NetGsmProvider
 
     public NetGsmMessage CreateMessage(MessageBody message)
     {
-        var option = new NetGsmMessage()
+        var data = message.ProviderData;
+        var userNameProviderData = data.GetData(CustomProviderData.Username);
+        var passwordProviderData = data.GetData(CustomProviderData.Password);
+        var orginatorProviderData = data.GetData(CustomProviderData.Orginator);
+
+        var username = userNameProviderData.IsEmpty() ? _options.Username : userNameProviderData.GetValue<string>();
+        var password = passwordProviderData.IsEmpty() ? _options.Password : passwordProviderData.GetValue<string>();
+        var orginator = orginatorProviderData.IsEmpty() ? _options.Orginator : orginatorProviderData.GetValue<string>();
+
+        var option = new NetGsmMessage();
+        option.Header = new Header
         {
-            Phone = message.To,
-            Orginator = message.Originator,
-            Message = message.Content,
+            Company = new Company { Dil = "TR", Text = "Netgsm" },
+            Usercode = username,
+            Password = password,
+            Type = "1:n",
+            Msgheader = orginator
+        };
+
+        option.Body = new Body
+        {
+            Msg = message.Content,
+            No = message.To
         };
 
         return option;

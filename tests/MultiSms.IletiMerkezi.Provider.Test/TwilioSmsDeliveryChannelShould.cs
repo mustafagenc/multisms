@@ -106,7 +106,7 @@ public class TwilioProviderShould
         var message = MessageBody.Compose()
             .Orginator(TEST_ORGINATOR)
             .To(TEST_TO)
-            .WithContent("this is a test")
+            .WithContent("test message")
             .Build();
 
         var mailMessage = channel.CreateMessage(message);
@@ -132,7 +132,7 @@ public class TwilioProviderShould
         var messageComposer = MessageBody.Compose()
             .To(TEST_TO)
             .Orginator(TEST_ORGINATOR)
-            .WithContent("this is a test")
+            .WithContent("test message")
             .SetAttempt(1)
             .SetMaxPrice(12.2m)
             .SetSendAsMms(true)
@@ -176,7 +176,7 @@ public class TwilioProviderShould
         var message = MessageBody.Compose()
             .Orginator(TEST_ORGINATOR)
             .To(TEST_TO)
-            .WithContent("this is a test")
+            .WithContent("test message")
             .Build();
 
         var result = provider.Send(message);

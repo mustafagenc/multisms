@@ -73,7 +73,6 @@ public partial class NetGsmProvider
             Message = message.Content,
         };
 
-
         return option;
     }
 }

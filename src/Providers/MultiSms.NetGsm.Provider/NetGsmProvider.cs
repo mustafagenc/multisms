@@ -10,7 +10,9 @@ namespace MultiSms.NetGsm.Provider;
 public partial class NetGsmProvider : INetGsmProvider
 {
     public SendingResult Send(MessageBody message)
-        => SendAsync(message).GetAwaiter().GetResult();
+    {
+        return SendAsync(message).GetAwaiter().GetResult();
+    }
 
     public async Task<SendingResult> SendAsync(MessageBody message, CancellationToken cancellationToken = default)
     {

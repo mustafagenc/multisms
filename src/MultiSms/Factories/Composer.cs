@@ -53,6 +53,4 @@ public class Composer
 
     public MessageBody Build() => new MessageBody(_bodyContent, _orginator, _to, _providerData);
 
-
 }
-

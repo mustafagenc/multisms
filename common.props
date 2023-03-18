@@ -17,9 +17,4 @@
 		<DebugType>none</DebugType>
 		<DebugSymbols>false</DebugSymbols>
 	</PropertyGroup>
-	<ItemGroup>
-		<Content Include="$(MSBuildThisFileDirectory)icon.png" Pack="true" PackagePath="/">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
 </Project>

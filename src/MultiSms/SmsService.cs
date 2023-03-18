@@ -6,41 +6,66 @@ namespace MultiSms;
 
 public partial class SmsService : ISmsService
 {
-    private readonly IDictionary<string, ISmsProvider> _providers;
-    private readonly ISmsProvider _defaultProvider;
-
     public MultiSmsServiceOptions Options { get; }
     public IEnumerable<ISmsProvider> Providers => _providers.Values;
     public ISmsProvider DefaultProvider => _defaultProvider;
 
     public SendingResult Send(MessageBody message)
     {
-        throw new NotImplementedException();
+       return Send(message, _defaultProvider);
     }
 
     public SendingResult Send(MessageBody message, string providerName)
     {
-        throw new NotImplementedException();
+        if (providerName is null)
+            throw new ArgumentNullException(nameof(providerName));
+
+        if (!_providers.TryGetValue(providerName, out ISmsProvider provider))
+            throw new ProviderNotFoundException(providerName);
+
+        return Send(message, provider);
     }
 
     public SendingResult Send(MessageBody message, ISmsProvider provider)
     {
-        throw new NotImplementedException();
+        if (message is null)
+            throw new ArgumentNullException(nameof(message));
+
+        if (provider is null)
+            throw new ArgumentNullException(nameof(provider));
+
+        CheckMessageOrginatorValue(message);
+
+        return provider.Send(message);
     }
 
     public Task<SendingResult> SendAsync(MessageBody message, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        return SendAsync(message, _defaultProvider, cancellationToken);
     }
 
     public Task<SendingResult> SendAsync(MessageBody message, string providerName, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        if (providerName is null)
+            throw new ArgumentNullException(nameof(providerName));
+
+        if (!_providers.TryGetValue(providerName, out ISmsProvider provider))
+            throw new ProviderNotFoundException(providerName);
+
+        return SendAsync(message, provider, cancellationToken);
     }
 
     public Task<SendingResult> SendAsync(MessageBody message, ISmsProvider provider, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        if (message is null)
+            throw new ArgumentNullException(nameof(message));
+
+        if (provider is null)
+            throw new ArgumentNullException(nameof(provider));
+
+        CheckMessageOrginatorValue(message);
+
+        return provider.SendAsync(message, cancellationToken);
     }
 
     public SmsService(IEnumerable<ISmsProvider> providers, MultiSmsServiceOptions options)
@@ -65,6 +90,10 @@ public partial class SmsService : ISmsService
 
         _defaultProvider = _providers[options.DefaultProvider];
     }
+
+    private readonly IDictionary<string, ISmsProvider> _providers;
+
+    private readonly ISmsProvider _defaultProvider;
 
     private void CheckMessageOrginatorValue(MessageBody message)
     {

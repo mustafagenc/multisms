@@ -2,18 +2,37 @@
 <Project>
 	<PropertyGroup>
 		<Version>1.0.0</Version>
-		<NoWarn>$(NoWarn);CS1591</NoWarn>
-		<RepositoryUrl>https://github.com/mustafagenc/multisms</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<PackageTags>sms, sms provider, netgsm</PackageTags>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+	<PropertyGroup>
 		<Authors>Mustafa Genç</Authors>
 		<ProductName>Multi SMS</ProductName>
 		<Copyright>Copyright © 2023</Copyright>
 		<MaintainerEmail>eposta@mustafagenc.info</MaintainerEmail>
+		<PackageTags>sms, sms provider, netgsm</PackageTags>
+		<PackageIcon>logo.png</PackageIcon>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageProjectUrl>https://github.com/mustafagenc/multisms</PackageProjectUrl>
+		<PackageReleaseNotes>https://github.com/mustafagenc/multisms/releases</PackageReleaseNotes>
+	</PropertyGroup>
+	<PropertyGroup>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<RepositoryUrl>https://github.com/mustafagenc/multisms</RepositoryUrl>
+		<RepositoryType>GitHub</RepositoryType>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)' == 'Release' ">
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<DebugType>none</DebugType>
-		<DebugSymbols>false</DebugSymbols>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);CS1591</NoWarn>
 	</PropertyGroup>
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)..\assets\logo.png" Pack="true" PackagePath="logo.png" Visible="false" />
+		<None Include="$(MSBuildThisFileDirectory)..\LICEN*" Pack="true" PackagePath="" Visible="false" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="all" />
+	</ItemGroup>
 </Project>

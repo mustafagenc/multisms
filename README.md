@@ -6,13 +6,12 @@
 ## 📞 Providers
 
 - [x] [NetGSM](https://netgsm.com.tr/)
-- [ ] [İleti Merkezi](https://iletimerkezi.com)
+- [x] [İleti Merkezi](https://iletimerkezi.com)
 - [ ] [Mas GSM](https://masgsm.com.tr)
 - [ ] [Mutlucell](https://mutlucell.com.tr)
 - [ ] [SmsVitrini](https://smsvitrini.com)
 - [ ] [JetSms](https://jetsms.net)
 - [x] [Twilio](https://twilio.com)
-
 
 ## 🔗 Links
 

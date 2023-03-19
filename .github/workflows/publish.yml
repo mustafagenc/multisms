@@ -35,9 +35,9 @@ jobs:
                   dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/mustafagenc/index.json
                   dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols --api-key ${{ secrets.NUGET_TOKEN }} --source https://nuget.org/api/v2/package
 
-            - name: Upload Assets to Release
-              run: |
-                  chmod +x ./publish.sh
-                  ./publish.sh ${{ github.event.release.tag_name }}
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            #- name: Upload Assets to Release
+            #  run: |
+            #      chmod +x ./publish.sh
+            #      ./publish.sh ${{ github.event.release.tag_name }}
+            #  env:
+            #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -2,4 +2,4 @@
 
 namespace MultiSms.IletiMerkezi.Provider;
 
-public interface IIletiMerkeziProvider : ISmsProvider { }
+public interface IIletiMerkeziProvider : ISmsProvider {}

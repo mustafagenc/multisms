@@ -1,10 +1,9 @@
 ﻿using System.Text;
-using System.Xml.Serialization;
+using MultiSms.Helpers;
 using MultiSms.Interfaces;
 using MultiSms.Models;
 using MultiSms.NetGsm.Provider.Models;
 using MultiSms.NetGsm.Provider.Options;
-using MultiSms.Helpers;
 
 namespace MultiSms.NetGsm.Provider;
 
@@ -22,7 +21,6 @@ public partial class NetGsmProvider : INetGsmProvider
             var client = CreateClient();
 
             using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) { Path = "sms/send/xml" }.Uri);
-
             using var xmlContent = new StringContent(CreateMessage(message).Serialize(), Encoding.UTF8, "application/xml");
 
             request.Content = xmlContent;
@@ -62,7 +60,33 @@ public partial class NetGsmProvider
 
     private static SendingResult BuildResultObject(HttpResponseMessage result)
     {
-        return SendingResult.Success(Name).AddMetaData("response", result);
+        using var content = result.Content.ReadAsStringAsync();
+        var code = content.Result;
+
+        if (code == "00" || code == "01" || code == "02")
+        {
+            return SendingResult.Success(Name).AddMetaData("response", result);
+        }
+        else if (code == "20")
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError("20", "Mesaj metninde ki problemden dolayı gönderilemediğini veya standart maksimum mesaj karakter sayısını geçti."));
+        }
+        else if (code == "30")
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError("30", "Geçersiz kullanıcı adı , şifre veya kullanıcınızın API erişim iznininiz bulunmamakta."));
+        }
+        else if (code == "40")
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError("40", "Mesaj başlığınızın (gönderici adınızın) sistemde tanımlı değil."));
+        }
+        else if (code == "70")
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError("70", "Hatalı sorgulama. Gönderdiğiniz parametrelerden birisi hatalı veya zorunlu alanlardan birinin eksik."));
+        }
+        else
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError("80", "Bilinmeyen bir hata oluştu"));
+        }
     }
 
     public NetGsmMessage CreateMessage(MessageBody message)

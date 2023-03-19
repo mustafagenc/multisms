@@ -19,13 +19,13 @@ public class NetGsmController : ControllerBase
     }
 
     [HttpGet]
-    public SendingResult Send()
+    public async Task<SendingResult> Send(CancellationToken cancellationToken)
     {
         var message = MessageBody.Compose()
             .To("+905325321221")
             .WithContent("test message")
             .Build();
 
-        return _smsService.Send(message);
+        return await _smsService.SendAsync(message, cancellationToken);
     }
 }

@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution_items", "solution_
 		common.props = common.props
 		LICENSE = LICENSE
 		README.md = README.md
+		publish.sh = publish.sh
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.Twilio.Provider", "src\Providers\MultiSms.Twilio.Provider\MultiSms.Twilio.Provider.csproj", "{9AC88477-6B0E-4643-A698-949BD2F1136F}"

@@ -10,7 +10,6 @@
 		<Copyright>Copyright © 2023</Copyright>
 		<MaintainerEmail>eposta@mustafagenc.info</MaintainerEmail>
 		<PackageTags>sms, sms provider, netgsm</PackageTags>
-		<PackageIcon>logo.png</PackageIcon>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageProjectUrl>https://github.com/mustafagenc/multisms</PackageProjectUrl>
@@ -29,7 +28,6 @@
 		<NoWarn>$(NoWarn);CS1591</NoWarn>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Include="$(MSBuildThisFileDirectory)..\assets\logo.png" Pack="true" PackagePath="logo.png" Visible="false" />
 		<None Include="$(MSBuildThisFileDirectory)..\LICEN*" Pack="true" PackagePath="" Visible="false" />
 	</ItemGroup>
 	<ItemGroup>

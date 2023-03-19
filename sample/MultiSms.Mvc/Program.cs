@@ -25,6 +25,11 @@ builder.Services.AddMultiSms(options =>
     username: builder.Configuration.GetValue<string>("MultiSms:Twilio:Username"),
     password: builder.Configuration.GetValue<string>("MultiSms:Twilio:Password")
 )
+.UseJetSms(
+    username: builder.Configuration.GetValue<string>("MultiSms:JetSms:Username"),
+    password: builder.Configuration.GetValue<string>("MultiSms:JetSms:Password"),
+    orginator: builder.Configuration.GetValue<string>("MultiSms:JetSms:Orginator")
+)
 .UseNetGsm(
     username: builder.Configuration.GetValue<string>("MultiSms:NetGsm:Username"),
     password: builder.Configuration.GetValue<string>("MultiSms:NetGsm:Password"),

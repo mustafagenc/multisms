@@ -1,16 +1,18 @@
 ﻿using System.Text;
+using MultiSms.Helpers;
 using MultiSms.Interfaces;
 using MultiSms.Models;
 using MultiSms.NetGsm.Provider.Models;
 using MultiSms.NetGsm.Provider.Options;
-using Newtonsoft.Json;
 
 namespace MultiSms.NetGsm.Provider;
 
 public partial class NetGsmProvider : INetGsmProvider
 {
     public SendingResult Send(MessageBody message)
-        => SendAsync(message).GetAwaiter().GetResult();
+    {
+        return SendAsync(message).GetAwaiter().GetResult();
+    }
 
     public async Task<SendingResult> SendAsync(MessageBody message, CancellationToken cancellationToken = default)
     {
@@ -19,10 +21,9 @@ public partial class NetGsmProvider : INetGsmProvider
             var client = CreateClient();
 
             using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) { Path = "sms/send/xml" }.Uri);
+            using var xmlContent = new StringContent(CreateMessage(message).Serialize(), Encoding.UTF8, "application/xml");
 
-            using var jsonContent = new StringContent(JsonConvert.SerializeObject(CreateMessage(message)), Encoding.UTF8, "application/json");
-
-            request.Content = jsonContent;
+            request.Content = xmlContent;
 
             using var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
 
@@ -59,18 +60,61 @@ public partial class NetGsmProvider
 
     private static SendingResult BuildResultObject(HttpResponseMessage result)
     {
-        return SendingResult.Success(Name).AddMetaData("response", result);
+        using var content = result.Content.ReadAsStringAsync();
+        var code = content.Result;
+
+        if (code == "00" || code == "01" || code == "02")
+        {
+            return SendingResult.Success(Name).AddMetaData("response", result);
+        }
+        else if (code == "20")
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError("20", "Mesaj metninde ki problemden dolayı gönderilemediğini veya standart maksimum mesaj karakter sayısını geçti."));
+        }
+        else if (code == "30")
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError("30", "Geçersiz kullanıcı adı , şifre veya kullanıcınızın API erişim iznininiz bulunmamakta."));
+        }
+        else if (code == "40")
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError("40", "Mesaj başlığınızın (gönderici adınızın) sistemde tanımlı değil."));
+        }
+        else if (code == "70")
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError("70", "Hatalı sorgulama. Gönderdiğiniz parametrelerden birisi hatalı veya zorunlu alanlardan birinin eksik."));
+        }
+        else
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError("80", "Bilinmeyen bir hata oluştu"));
+        }
     }
 
     public NetGsmMessage CreateMessage(MessageBody message)
     {
-        var option = new NetGsmMessage()
+        var data = message.ProviderData;
+        var userNameProviderData = data.GetData(CustomProviderData.Username);
+        var passwordProviderData = data.GetData(CustomProviderData.Password);
+        var orginatorProviderData = data.GetData(CustomProviderData.Orginator);
+
+        var username = userNameProviderData.IsEmpty() ? _options.Username : userNameProviderData.GetValue<string>();
+        var password = passwordProviderData.IsEmpty() ? _options.Password : passwordProviderData.GetValue<string>();
+        var orginator = orginatorProviderData.IsEmpty() ? _options.Orginator : orginatorProviderData.GetValue<string>();
+
+        var option = new NetGsmMessage();
+        option.Header = new Header
         {
-            Phone = message.To,
-            Orginator = message.Originator,
-            Message = message.Content,
+            Company = new Company { Dil = "TR", Text = "Netgsm" },
+            Usercode = username,
+            Password = password,
+            Type = "1:n",
+            Msgheader = orginator
         };
 
+        option.Body = new Body
+        {
+            Msg = message.Content,
+            No = message.To
+        };
 
         return option;
     }

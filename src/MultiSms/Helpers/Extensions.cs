@@ -1,4 +1,5 @@
-﻿using MultiSms.Models;
+﻿using System.Xml.Serialization;
+using MultiSms.Models;
 
 namespace MultiSms.Helpers;
 
@@ -14,5 +15,27 @@ public static class Extensions
         return data.FirstOrDefault(e => e.Key == key);
     }
 
+    public static string Serialize(this object dataToSerialize)
+    {
+        if (dataToSerialize == null) return null;
+
+        using (StringWriter stringwriter = new System.IO.StringWriter())
+        {
+            var serializer = new XmlSerializer(dataToSerialize.GetType());
+            serializer.Serialize(stringwriter, dataToSerialize);
+            return stringwriter.ToString();
+        }
+    }
+
+    public static T Deserialize<T>(this string xmlText)
+    {
+        if (String.IsNullOrWhiteSpace(xmlText)) return default(T);
+
+        using (StringReader stringReader = new System.IO.StringReader(xmlText))
+        {
+            var serializer = new XmlSerializer(typeof(T));
+            return (T)serializer.Deserialize(stringReader);
+        }
+    }
 }
 

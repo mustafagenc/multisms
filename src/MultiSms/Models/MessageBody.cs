@@ -1,4 +1,6 @@
-﻿namespace MultiSms.Models;
+﻿using MultiSms.Factories;
+
+namespace MultiSms.Models;
 
 /// <summary>
 /// 
@@ -46,5 +48,8 @@ public partial class MessageBody
     public ICollection<ProviderData> ProviderData { get; set; }
 
     public void SetFrom(string originator) => Originator = originator;
+
+    public static Composer Compose()
+            => new Composer();
 
 }

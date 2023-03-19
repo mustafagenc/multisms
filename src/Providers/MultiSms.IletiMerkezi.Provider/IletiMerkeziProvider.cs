@@ -21,7 +21,9 @@ public partial class IletiMerkeziProvider : IIletiMerkeziProvider
         {
             var client = CreateClient();
 
-            using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) { Path = "v1/send-sms/json" }.Uri);
+            using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) {
+                Path = "v1/send-sms/json"
+            } .Uri);
             using var jsonContent = new StringContent(JsonConvert.SerializeObject(CreateMessage(message)), Encoding.UTF8, "application/json");
 
             request.Content = jsonContent;

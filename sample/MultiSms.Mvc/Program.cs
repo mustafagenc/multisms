@@ -3,15 +3,15 @@
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("cors",
-        builder => builder.WithOrigins(
-            "http://localhost",
-            "http://localhost:8100",
-            "http://192.168.1.99:8100",
-            "http://192.168.1.102:8100"
-        )
-        .AllowAnyMethod()
-        .AllowAnyHeader()
-        .AllowCredentials());
+                      builder => builder.WithOrigins(
+                          "http://localhost",
+                          "http://localhost:8100",
+                          "http://192.168.1.99:8100",
+                          "http://192.168.1.102:8100"
+                      )
+                      .AllowAnyMethod()
+                      .AllowAnyHeader()
+                      .AllowCredentials());
 });
 
 

@@ -20,7 +20,9 @@ public partial class NetGsmProvider : INetGsmProvider
         {
             var client = CreateClient();
 
-            using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) { Path = "sms/send/xml" }.Uri);
+            using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) {
+                Path = "sms/send/xml"
+            } .Uri);
             using var xmlContent = new StringContent(CreateMessage(message).Serialize(), Encoding.UTF8, "application/xml");
 
             request.Content = xmlContent;

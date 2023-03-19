@@ -13,7 +13,11 @@ public static class Configurations
 
     public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, string username, string password, string orginator)
     {
-        return builder.UseIletiMerkezi(options => { options.Username = username; options.Password = password; options.Orginator = orginator; });
+        return builder.UseIletiMerkezi(options => {
+            options.Username = username;
+            options.Password = password;
+            options.Orginator = orginator;
+        });
     }
 
     public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, Action<IletiMerkeziProviderOptions> config)

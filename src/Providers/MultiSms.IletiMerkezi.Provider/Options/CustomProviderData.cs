@@ -1,5 +1,4 @@
-﻿using System;
-namespace MultiSms.IletiMerkezi.Provider.Options;
+﻿namespace MultiSms.IletiMerkezi.Provider.Options;
 
 public static class CustomProviderData
 {

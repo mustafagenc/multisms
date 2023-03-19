@@ -1,5 +1,4 @@
-﻿using System;
-using MultiSms.Models;
+﻿using MultiSms.Models;
 
 namespace MultiSms.Factories;
 

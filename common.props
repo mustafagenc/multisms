@@ -10,6 +10,7 @@
 		<Copyright>Copyright © 2023</Copyright>
 		<MaintainerEmail>eposta@mustafagenc.info</MaintainerEmail>
 		<PackageTags>sms,sms provider,sms-gateway,netgsm,iletimerkezi,twillo,smsvitrini,mutlucell,masgsm,jetsms</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/mustafagenc/multisms</PackageProjectUrl>
 		<PackageReleaseNotes>https://github.com/mustafagenc/multisms/releases</PackageReleaseNotes>
 	</PropertyGroup>

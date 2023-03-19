@@ -12,7 +12,7 @@ public partial class SmsService : ISmsService
 
     public SendingResult Send(MessageBody message)
     {
-       return Send(message, _defaultProvider);
+        return Send(message, _defaultProvider);
     }
 
     public SendingResult Send(MessageBody message, string providerName)

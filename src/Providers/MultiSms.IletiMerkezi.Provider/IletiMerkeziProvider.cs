@@ -1,10 +1,10 @@
-﻿using System.Text;
-using MultiSms.Helpers;
+﻿using MultiSms.Helpers;
 using MultiSms.IletiMerkezi.Provider.Models;
 using MultiSms.IletiMerkezi.Provider.Options;
 using MultiSms.Interfaces;
 using MultiSms.Models;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace MultiSms.IletiMerkezi.Provider;
 
@@ -22,11 +22,7 @@ public partial class IletiMerkeziProvider : IIletiMerkeziProvider
             var client = CreateClient();
 
             using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) { Path = "v1/send-sms/json" }.Uri);
-
-            using var jsonContent = new StringContent(
-                JsonConvert.SerializeObject(CreateMessage(message)),
-                Encoding.UTF8,
-                "application/json");
+            using var jsonContent = new StringContent(JsonConvert.SerializeObject(CreateMessage(message)), Encoding.UTF8, "application/json");
 
             request.Content = jsonContent;
 
@@ -65,7 +61,14 @@ public partial class IletiMerkeziProvider
 
     private static SendingResult BuildResultObject(HttpResponseMessage result)
     {
-        return SendingResult.Success(Name).AddMetaData("response", result);
+        if (result.IsSuccessStatusCode)
+        {
+            return SendingResult.Success(Name).AddMetaData("response", result);
+        }
+        else
+        {
+            return SendingResult.Failure(Name).AddError(new SendingError(result.StatusCode.ToString(), result.ReasonPhrase));
+        }
     }
 
     public IletiMerkeziMessage CreateMessage(MessageBody message)

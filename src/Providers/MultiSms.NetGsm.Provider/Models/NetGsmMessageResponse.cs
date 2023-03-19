@@ -1,5 +1,4 @@
-﻿using System;
-namespace MultiSms.NetGsm.Provider.Models;
+﻿namespace MultiSms.NetGsm.Provider.Models;
 
 public class NetGsmMessageResponse
 {

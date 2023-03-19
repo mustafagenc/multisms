@@ -13,12 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.NetGsm.Provider", "src\Providers\MultiSms.NetGsm.Provider\MultiSms.NetGsm.Provider.csproj", "{9C232ED2-2BC6-44AF-94D4-B501A12BD75D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.IletiMerkezi.Provider", "src\Providers\MultiSms.IletiMerkezi.Provider\MultiSms.IletiMerkezi.Provider.csproj", "{A527E7D2-96FD-4715-BEC6-776462FF54E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.IletiMerkezi.Provider", "src\Providers\MultiSms.IletiMerkezi.Provider\MultiSms.IletiMerkezi.Provider.csproj", "{A527E7D2-96FD-4715-BEC6-776462FF54E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution_items", "solution_items", "{4E7C22A7-3F99-4927-B481-6DAB5C008FD4}"
 	ProjectSection(SolutionItems) = preProject
 		common.props = common.props
-		icon.png = icon.png
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection

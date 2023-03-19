@@ -109,11 +109,11 @@ public class TwilioProviderShould
             .WithContent("test message")
             .Build();
 
-        var mailMessage = channel.CreateMessage(message);
+        var smsMessage = channel.CreateMessage(message);
 
-        Assert.Equal(message.Originator.ToString(), mailMessage.From.ToString());
-        Assert.Equal(message.To.ToString(), mailMessage.To.ToString());
-        Assert.Equal(message.Content, mailMessage.Body);
+        Assert.Equal(message.Originator.ToString(), smsMessage.From.ToString());
+        Assert.Equal(message.To.ToString(), smsMessage.To.ToString());
+        Assert.Equal(message.Content, smsMessage.Body);
     }
 
     [Fact]
@@ -148,24 +148,24 @@ public class TwilioProviderShould
         TwilioComposerExtensions.SetStatusCallback(messageComposer, expectedStatusCallback);
 
         var message = messageComposer.Build();
-        var mailMessage = provider.CreateMessage(message);
+        var smsMessage = provider.CreateMessage(message);
 
-        Assert.True(mailMessage.SendAsMms);
-        Assert.Equal(1, mailMessage.Attempt);
-        Assert.True(mailMessage.SmartEncoded);
-        Assert.True(mailMessage.ForceDelivery);
-        Assert.True(mailMessage.ProvideFeedback);
-        Assert.Equal(12.2m, mailMessage.MaxPrice);
-        Assert.Equal(1, mailMessage.ValidityPeriod);
-        Assert.Equal(expectedMediaUrl, mailMessage.MediaUrl);
-        Assert.Equal(expectedStatusCallback, mailMessage.StatusCallback);
-        Assert.Equal("application_sid_value", mailMessage.ApplicationSid);
-        Assert.Equal(expectedPersistentAction, mailMessage.PersistentAction);
-        Assert.Equal("messaging_service_sid_value", mailMessage.MessagingServiceSid);
+        Assert.True(smsMessage.SendAsMms);
+        Assert.Equal(1, smsMessage.Attempt);
+        Assert.True(smsMessage.SmartEncoded);
+        Assert.True(smsMessage.ForceDelivery);
+        Assert.True(smsMessage.ProvideFeedback);
+        Assert.Equal(12.2m, smsMessage.MaxPrice);
+        Assert.Equal(1, smsMessage.ValidityPeriod);
+        Assert.Equal(expectedMediaUrl, smsMessage.MediaUrl);
+        Assert.Equal(expectedStatusCallback, smsMessage.StatusCallback);
+        Assert.Equal("application_sid_value", smsMessage.ApplicationSid);
+        Assert.Equal(expectedPersistentAction, smsMessage.PersistentAction);
+        Assert.Equal("messaging_service_sid_value", smsMessage.MessagingServiceSid);
     }
 
     [Fact(Skip = "no auth keys")]
-    public void SendEmail()
+    public void SendSMS()
     {
         var provider = new TwilioProvider(new TwilioProviderOptions()
         {

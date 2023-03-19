@@ -1,5 +1,4 @@
-﻿using System;
-using MultiSms.Exceptions;
+﻿using MultiSms.Exceptions;
 
 namespace MultiSms.NetGsm.Provider.Options;
 
@@ -22,4 +21,3 @@ public class NetGsmProviderOptions
             throw new RequiredOptionException<NetGsmProviderOptions>($"{nameof(Orginator)}", "Orginator girmelisiniz.");
     }
 }
-

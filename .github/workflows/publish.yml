@@ -34,3 +34,4 @@ jobs:
     - name: Push
       run: |
         dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/mustafagenc/index.json
+        dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols --api-key ${{ secrets.NUGET_TOKEN }} --source https://nuget.org/api/v2/package

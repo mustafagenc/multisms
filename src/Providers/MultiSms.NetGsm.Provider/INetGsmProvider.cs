@@ -2,4 +2,4 @@
 
 namespace MultiSms.NetGsm.Provider;
 
-public interface INetGsmProvider : ISmsProvider { }
+public interface INetGsmProvider : ISmsProvider {}

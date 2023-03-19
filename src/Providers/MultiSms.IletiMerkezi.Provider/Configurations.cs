@@ -1,6 +1,3 @@
 ﻿namespace Microsoft.Extensions.DependencyInjection;
 
-public static class Configurations
-{
-
-}
+public static class Configurations {}

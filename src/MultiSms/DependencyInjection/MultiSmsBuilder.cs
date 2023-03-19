@@ -2,20 +2,14 @@
 
 namespace Microsoft.Extensions.DependencyInjection;
 
-public class MultiSmsBuilder
-{
-    public MultiSmsBuilder(IServiceCollection serviceCollection, MultiSmsServiceOptions configuration)
-    {
-        Configuration = configuration;
-        ServiceCollection = serviceCollection;
-    }
+public class MultiSmsBuilder {
+  public MultiSmsBuilder(IServiceCollection serviceCollection,
+                         MultiSmsServiceOptions configuration) {
+    Configuration = configuration;
+    ServiceCollection = serviceCollection;
+  }
 
-    public IServiceCollection ServiceCollection {
-        get;
-    }
+  public IServiceCollection ServiceCollection { get; }
 
-    public MultiSmsServiceOptions Configuration {
-        get;
-    }
-
+  public MultiSmsServiceOptions Configuration { get; }
 }

@@ -4,6 +4,7 @@ using MultiSms.IletiMerkezi.Provider.Models;
 using MultiSms.IletiMerkezi.Provider.Options;
 using MultiSms.Interfaces;
 using MultiSms.Models;
+using Newtonsoft.Json;
 
 namespace MultiSms.IletiMerkezi.Provider;
 
@@ -20,10 +21,14 @@ public partial class IletiMerkeziProvider : IIletiMerkeziProvider
         {
             var client = CreateClient();
 
-            using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) { Path = "sms/send/xml" }.Uri);
-            using var xmlContent = new StringContent(CreateMessage(message).Serialize(), Encoding.UTF8, "application/xml");
+            using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) { Path = "v1/send-sms/json" }.Uri);
 
-            request.Content = xmlContent;
+            using var jsonContent = new StringContent(
+                JsonConvert.SerializeObject(CreateMessage(message)),
+                Encoding.UTF8,
+                "application/json");
+
+            request.Content = jsonContent;
 
             using var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
 
@@ -76,7 +81,29 @@ public partial class IletiMerkeziProvider
 
         var option = new IletiMerkeziMessage();
 
-        //ToDo:detay
+        option.request = new Request
+        {
+            authentication = new Authentication
+            {
+                username = username,
+                password = password
+            },
+            order = new Order
+            {
+                sender = orginator,
+                message = new Message
+                {
+                    text = message.Content,
+                    receipts = new Receipts
+                    {
+                        number = new List<string>()
+                        {
+                            message.To
+                        }
+                    }
+                }
+            }
+        };
 
         return option;
     }

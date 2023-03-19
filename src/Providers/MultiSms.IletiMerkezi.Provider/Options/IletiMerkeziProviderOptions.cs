@@ -7,7 +7,7 @@ public class IletiMerkeziProviderOptions
     public string Username { get; set; }
     public string Password { get; set; }
     public string Orginator { get; set; }
-    public string BaseUrl { get; set; } = "https://api.iletimerkezi.com/v1/";
+    public string BaseUrl { get; set; } = "https://api.iletimerkezi.com/";
 
     public void Validate()
     {

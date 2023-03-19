@@ -3,35 +3,36 @@ using MultiSms.Models;
 
 namespace MultiSms.Factories;
 
-public partial class MultiSmsServiceFactory
-{
-    private readonly MultiSmsServiceOptions _options = new MultiSmsServiceOptions();
-    private readonly HashSet<ISmsProvider> _providers = new HashSet<ISmsProvider>();
+public partial class MultiSmsServiceFactory {
+  private readonly MultiSmsServiceOptions _options =
+      new MultiSmsServiceOptions();
+  private readonly HashSet<ISmsProvider> _providers =
+      new HashSet<ISmsProvider>();
 
-    private MultiSmsServiceFactory() { }
+  private MultiSmsServiceFactory() {}
 
-    public static readonly MultiSmsServiceFactory Instance = new MultiSmsServiceFactory();
+  public static readonly MultiSmsServiceFactory Instance =
+      new MultiSmsServiceFactory();
 
-    public MultiSmsServiceFactory UseOptions(Action<MultiSmsServiceOptions> options)
-    {
-        if (options is null)
-            throw new ArgumentNullException(nameof(options));
+  public MultiSmsServiceFactory
+  UseOptions(Action<MultiSmsServiceOptions> options) {
+    if (options is null)
+      throw new ArgumentNullException(nameof(options));
 
-        options(_options);
-        _options.Validate();
+    options(_options);
+    _options.Validate();
 
-        return this;
-    }
+    return this;
+  }
 
-    public MultiSmsServiceFactory UseProvider(ISmsProvider provider)
-    {
-        if (provider is null)
-            throw new ArgumentNullException(nameof(provider));
+  public MultiSmsServiceFactory UseProvider(ISmsProvider provider) {
+    if (provider is null)
+      throw new ArgumentNullException(nameof(provider));
 
-        _providers.Add(provider);
+    _providers.Add(provider);
 
-        return this;
-    }
+    return this;
+  }
 
-    public ISmsService Create() => new SmsService(_providers, _options);
+  public ISmsService Create() => new SmsService(_providers, _options);
 }

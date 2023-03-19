@@ -1,6 +1,3 @@
 ﻿namespace MultiSms.NetGsm.Provider.Models;
 
-public class NetGsmMessageResponse
-{
-
-}
+public class NetGsmMessageResponse {}

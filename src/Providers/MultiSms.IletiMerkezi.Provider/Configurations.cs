@@ -4,33 +4,38 @@ using MultiSms.Interfaces;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
-public static class Configurations
-{
-    public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, string username, string password)
-    {
-        return builder.UseIletiMerkezi(username, password, null);
-    }
+public static class Configurations {
+  public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder,
+                                                string username,
+                                                string password) {
+    return builder.UseIletiMerkezi(username, password, null);
+  }
 
-    public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, string username, string password, string orginator)
-    {
-        return builder.UseIletiMerkezi(options => {
-            options.Username = username;
-            options.Password = password;
-            options.Orginator = orginator;
-        });
-    }
+  public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder,
+                                                string username,
+                                                string password,
+                                                string orginator) {
+    return builder.UseIletiMerkezi(options => {
+      options.Username = username;
+      options.Password = password;
+      options.Orginator = orginator;
+    });
+  }
 
-    public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, Action<IletiMerkeziProviderOptions> config)
-    {
-        var configuration = new IletiMerkeziProviderOptions();
-        config(configuration);
+  public static MultiSmsBuilder
+  UseIletiMerkezi(this MultiSmsBuilder builder,
+                  Action<IletiMerkeziProviderOptions> config) {
+    var configuration = new IletiMerkeziProviderOptions();
+    config(configuration);
 
-        configuration.Validate();
+    configuration.Validate();
 
-        builder.ServiceCollection.AddSingleton((s) => configuration);
-        builder.ServiceCollection.AddHttpClient<ISmsProvider, IletiMerkeziProvider>();
-        builder.ServiceCollection.AddHttpClient<IIletiMerkeziProvider, IletiMerkeziProvider>();
+    builder.ServiceCollection.AddSingleton((s) => configuration);
+    builder.ServiceCollection
+        .AddHttpClient<ISmsProvider, IletiMerkeziProvider>();
+    builder.ServiceCollection
+        .AddHttpClient<IIletiMerkeziProvider, IletiMerkeziProvider>();
 
-        return builder;
-    }
+    return builder;
+  }
 }

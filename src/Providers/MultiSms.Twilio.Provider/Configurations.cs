@@ -13,7 +13,11 @@ public static class Configurations
 
     public static MultiSmsBuilder UseTwilio(this MultiSmsBuilder builder, string username, string password, string accountSID)
     {
-        return builder.UseTwilio(options => { options.Username = username; options.Password = password; options.AccountSID = accountSID; });
+        return builder.UseTwilio(options => {
+            options.Username = username;
+            options.Password = password;
+            options.AccountSID = accountSID;
+        });
     }
 
     public static MultiSmsBuilder UseTwilio(this MultiSmsBuilder builder, Action<TwilioProviderOptions> config)

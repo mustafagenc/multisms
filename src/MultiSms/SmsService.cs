@@ -6,13 +6,15 @@ namespace MultiSms;
 
 public partial class SmsService : ISmsService
 {
-    public MultiSmsServiceOptions Options { get; }
+    public MultiSmsServiceOptions Options {
+        get;
+    }
     public IEnumerable<ISmsProvider> Providers => _providers.Values;
     public ISmsProvider DefaultProvider => _defaultProvider;
 
     public SendingResult Send(MessageBody message)
     {
-       return Send(message, _defaultProvider);
+        return Send(message, _defaultProvider);
     }
 
     public SendingResult Send(MessageBody message, string providerName)

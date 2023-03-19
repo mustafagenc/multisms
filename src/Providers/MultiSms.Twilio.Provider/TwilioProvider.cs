@@ -92,12 +92,12 @@ public partial class TwilioProvider
         if (result.Status != MessageResource.StatusEnum.Failed)
         {
             return SendingResult.Success(Name)
-                .AddMetaData("message_id", result.Sid)
-                .AddMetaData("twilio_response", result);
+                   .AddMetaData("message_id", result.Sid)
+                   .AddMetaData("twilio_response", result);
         }
 
         return SendingResult.Failure(Name)
-            .AddMetaData("twilio_response", result);
+               .AddMetaData("twilio_response", result);
     }
 
     public CreateMessageOptions CreateMessage(MessageBody message)

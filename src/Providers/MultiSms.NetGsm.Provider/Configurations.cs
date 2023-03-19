@@ -13,7 +13,11 @@ public static class Configurations
 
     public static MultiSmsBuilder UseNetGsm(this MultiSmsBuilder builder, string username, string password, string orginator)
     {
-        return builder.UseNetGsm(options => { options.Username = username; options.Password = password; options.Orginator = orginator; });
+        return builder.UseNetGsm(options => {
+            options.Username = username;
+            options.Password = password;
+            options.Orginator = orginator;
+        });
     }
 
     public static MultiSmsBuilder UseNetGsm(this MultiSmsBuilder builder, Action<NetGsmProviderOptions> config)

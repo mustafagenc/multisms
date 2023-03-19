@@ -104,10 +104,10 @@ public class TwilioProviderShould
         });
 
         var message = MessageBody.Compose()
-            .Orginator(TEST_ORGINATOR)
-            .To(TEST_TO)
-            .WithContent("test message")
-            .Build();
+                      .Orginator(TEST_ORGINATOR)
+                      .To(TEST_TO)
+                      .WithContent("test message")
+                      .Build();
 
         var mailMessage = channel.CreateMessage(message);
 
@@ -130,20 +130,20 @@ public class TwilioProviderShould
         var expectedMediaUrl = new List<Uri> { new Uri("https://example.com/logo.png") };
 
         var messageComposer = MessageBody.Compose()
-            .To(TEST_TO)
-            .Orginator(TEST_ORGINATOR)
-            .WithContent("test message")
-            .SetAttempt(1)
-            .SetMaxPrice(12.2m)
-            .SetSendAsMms(true)
-            .SetValidityPeriod(1)
-            .SetSmartEncoded(true)
-            .SetForceDelivery(true)
-            .SetProvideFeedback(true)
-            .SetMediaUrl(expectedMediaUrl)
-            .SetApplicationSid("application_sid_value")
-            .SetPersistentAction(expectedPersistentAction)
-            .SetMessagingServiceSid("messaging_service_sid_value");
+                              .To(TEST_TO)
+                              .Orginator(TEST_ORGINATOR)
+                              .WithContent("test message")
+                              .SetAttempt(1)
+                              .SetMaxPrice(12.2m)
+                              .SetSendAsMms(true)
+                              .SetValidityPeriod(1)
+                              .SetSmartEncoded(true)
+                              .SetForceDelivery(true)
+                              .SetProvideFeedback(true)
+                              .SetMediaUrl(expectedMediaUrl)
+                              .SetApplicationSid("application_sid_value")
+                              .SetPersistentAction(expectedPersistentAction)
+                              .SetMessagingServiceSid("messaging_service_sid_value");
 
         TwilioComposerExtensions.SetStatusCallback(messageComposer, expectedStatusCallback);
 
@@ -174,10 +174,10 @@ public class TwilioProviderShould
         });
 
         var message = MessageBody.Compose()
-            .Orginator(TEST_ORGINATOR)
-            .To(TEST_TO)
-            .WithContent("test message")
-            .Build();
+                      .Orginator(TEST_ORGINATOR)
+                      .To(TEST_TO)
+                      .WithContent("test message")
+                      .Build();
 
         var result = provider.Send(message);
 

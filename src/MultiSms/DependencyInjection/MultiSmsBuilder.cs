@@ -10,8 +10,12 @@ public class MultiSmsBuilder
         ServiceCollection = serviceCollection;
     }
 
-    public IServiceCollection ServiceCollection { get; }
+    public IServiceCollection ServiceCollection {
+        get;
+    }
 
-    public MultiSmsServiceOptions Configuration { get; }
+    public MultiSmsServiceOptions Configuration {
+        get;
+    }
 
 }

@@ -1,7 +1,5 @@
-﻿using System;
+﻿using MultiSms.Interfaces;
 
 namespace MultiSms.IletiMerkezi.Provider;
 
-public interface IIletiMerkeziProvider
-{
-}
+public interface IIletiMerkeziProvider : ISmsProvider { }

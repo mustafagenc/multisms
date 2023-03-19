@@ -10,16 +10,10 @@
 		<ProductName>Multi SMS</ProductName>
 		<Copyright>Copyright © 2023</Copyright>
 		<MaintainerEmail>eposta@mustafagenc.info</MaintainerEmail>
-		<PackageIcon>icon.png</PackageIcon>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)' == 'Release' ">
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<DebugType>none</DebugType>
 		<DebugSymbols>false</DebugSymbols>
 	</PropertyGroup>
-	<ItemGroup>
-		<Content Include="$(MSBuildThisFileDirectory)icon.png" Pack="true" PackagePath="/">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
 </Project>

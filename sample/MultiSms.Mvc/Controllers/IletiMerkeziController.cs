@@ -6,12 +6,12 @@ namespace MultiSms.Mvc.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class NetGsmController : ControllerBase
+public class IletiMerkeziController : ControllerBase
 {
-    private readonly ILogger<NetGsmController> _logger;
+    private readonly ILogger<IletiMerkeziController> _logger;
     private readonly ISmsService _smsService;
 
-    public NetGsmController(ILogger<NetGsmController> logger, ISmsService smsService)
+    public IletiMerkeziController(ILogger<IletiMerkeziController> logger, ISmsService smsService)
     {
         _logger = logger;
         _smsService = smsService;

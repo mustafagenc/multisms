@@ -10,7 +10,6 @@
 		<Copyright>Copyright © 2023</Copyright>
 		<MaintainerEmail>eposta@mustafagenc.info</MaintainerEmail>
 		<PackageTags>sms, sms provider, netgsm</PackageTags>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageProjectUrl>https://github.com/mustafagenc/multisms</PackageProjectUrl>
 		<PackageReleaseNotes>https://github.com/mustafagenc/multisms/releases</PackageReleaseNotes>

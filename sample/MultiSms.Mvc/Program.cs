@@ -3,12 +3,7 @@
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("cors",
-        builder => builder.WithOrigins(
-            "http://localhost",
-            "http://localhost:8100",
-            "http://192.168.1.99:8100",
-            "http://192.168.1.102:8100"
-        )
+        builder => builder.WithOrigins("http://localhost")
         .AllowAnyMethod()
         .AllowAnyHeader()
         .AllowCredentials());
@@ -39,6 +34,11 @@ builder.Services.AddMultiSms(options =>
     username: builder.Configuration.GetValue<string>("MultiSms:IletiMerkezi:Username"),
     password: builder.Configuration.GetValue<string>("MultiSms:IletiMerkezi:Password"),
     orginator: builder.Configuration.GetValue<string>("MultiSms:IletiMerkezi:Orginator")
+)
+.UseMasGsm(
+    username: builder.Configuration.GetValue<string>("MultiSms:MasGsm:Username"),
+    orginator: builder.Configuration.GetValue<string>("MultiSms:MasGsm:Orginator"),
+    password: builder.Configuration.GetValue<string>("MultiSms:MasGsm:Password")
 );
 
 var app = builder.Build();

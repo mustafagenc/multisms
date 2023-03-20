@@ -4,9 +4,9 @@ namespace MultiSms.Factories;
 
 public class Composer
 {
-    private PhoneNumber _to;
     private string _orginator;
     private string _bodyContent;
+    private PhoneNumber _to;
     private readonly HashSet<ProviderData> _providerData;
 
     public Composer()

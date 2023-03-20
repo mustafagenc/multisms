@@ -14,7 +14,6 @@ public partial class SendingResult
 
     private readonly HashSet<SendingError> _errors;
 
-
     public SendingResult(bool isSuccess, string providerName, params SendingError[] errors)
     {
         IsSuccess = isSuccess;
@@ -70,9 +69,7 @@ public partial class SendingResult
     public static SendingResult Success(string providerName)
         => new SendingResult(true, providerName);
 
-    public static SendingResult Failure(string providerName, params SendingError[] errors)
-        => new SendingResult(false, providerName);
-
+    public static SendingResult Failure(string providerName, params SendingError[] errors) => new(false, providerName);
 
     public static class MetaDataKeys
     {

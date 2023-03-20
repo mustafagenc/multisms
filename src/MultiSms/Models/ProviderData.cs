@@ -2,7 +2,7 @@
 
 namespace MultiSms.Models;
 
-public partial struct ProviderData : IEquatable<ProviderData>
+public readonly partial struct ProviderData : IEquatable<ProviderData>
 {
     public string Key { get; }
 
@@ -17,7 +17,7 @@ public partial struct ProviderData : IEquatable<ProviderData>
             throw new ArgumentException("Key degeri bos.");
     }
 
-    public static ProviderData New(string key, object value) => new ProviderData(key, value);
+    public static ProviderData New(string key, object value) => new(key, value);
 
     public TValue GetValue<TValue>() => (TValue)Value;
 

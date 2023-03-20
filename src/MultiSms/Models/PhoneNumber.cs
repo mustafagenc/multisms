@@ -47,7 +47,7 @@ public sealed class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
     /// <returns></returns>
     public bool Equals(PhoneNumber other)
     {
-        return (other is not null && other.ToString().Equals(_phoneNumber, StringComparison.OrdinalIgnoreCase));
+        return other is not null && other.ToString().Equals(_phoneNumber, StringComparison.OrdinalIgnoreCase);
     }
 
     /// <summary>
@@ -57,7 +57,7 @@ public sealed class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
     /// <returns></returns>
     public bool Equals(string other)
     {
-        return (other is not null && other.Equals(_phoneNumber, StringComparison.OrdinalIgnoreCase));
+        return other is not null && other.Equals(_phoneNumber, StringComparison.OrdinalIgnoreCase);
     }
 
     public override int GetHashCode()
@@ -71,7 +71,7 @@ public sealed class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
     /// <returns></returns>
     public override string ToString() => _phoneNumber;
 
-    public static implicit operator PhoneNumber(string phoneNumber) => new PhoneNumber(phoneNumber);
+    public static implicit operator PhoneNumber(string phoneNumber) => new(phoneNumber);
 
     public static implicit operator string(PhoneNumber phoneNumber) => phoneNumber.ToString();
 

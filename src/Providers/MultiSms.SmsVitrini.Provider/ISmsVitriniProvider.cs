@@ -2,4 +2,4 @@
 
 namespace MultiSms.SmsVitrini.Provider;
 
-public interface ISmsVitriniProvider :  ISmsProvider { }
+public interface ISmsVitriniProvider : ISmsProvider { }

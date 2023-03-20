@@ -5,12 +5,12 @@ namespace MultiSms.Factories;
 
 public partial class MultiSmsServiceFactory
 {
-    private readonly MultiSmsServiceOptions _options = new MultiSmsServiceOptions();
-    private readonly HashSet<ISmsProvider> _providers = new HashSet<ISmsProvider>();
+    private readonly MultiSmsServiceOptions _options = new();
+    private readonly HashSet<ISmsProvider> _providers = new();
 
     private MultiSmsServiceFactory() { }
 
-    public static readonly MultiSmsServiceFactory Instance = new MultiSmsServiceFactory();
+    public static readonly MultiSmsServiceFactory Instance = new();
 
     public MultiSmsServiceFactory UseOptions(Action<MultiSmsServiceOptions> options)
     {

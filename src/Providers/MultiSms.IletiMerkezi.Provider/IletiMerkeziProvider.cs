@@ -61,14 +61,9 @@ public partial class IletiMerkeziProvider
 
     private static SendingResult BuildResultObject(HttpResponseMessage result)
     {
-        if (result.IsSuccessStatusCode)
-        {
-            return SendingResult.Success(Name).AddMetaData("response", result);
-        }
-        else
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError(result.StatusCode.ToString(), result.ReasonPhrase));
-        }
+        return result.IsSuccessStatusCode
+            ? SendingResult.Success(Name).AddMetaData("response", result)
+            : SendingResult.Failure(Name).AddError(new SendingError(result.StatusCode.ToString(), result.ReasonPhrase));
     }
 
     public IletiMerkeziMessage CreateMessage(MessageBody message)
@@ -82,26 +77,27 @@ public partial class IletiMerkeziProvider
         var password = passwordProviderData.IsEmpty() ? _options.Password : passwordProviderData.GetValue<string>();
         var orginator = orginatorProviderData.IsEmpty() ? _options.Orginator : orginatorProviderData.GetValue<string>();
 
-        var option = new IletiMerkeziMessage();
-
-        option.request = new Request
+        var option = new IletiMerkeziMessage
         {
-            authentication = new Authentication
+            request = new Request
             {
-                username = username,
-                password = password
-            },
-            order = new Order
-            {
-                sender = orginator,
-                message = new Message
+                authentication = new Authentication
                 {
-                    text = message.Content,
-                    receipts = new Receipts
+                    username = username,
+                    password = password
+                },
+                order = new Order
+                {
+                    sender = orginator,
+                    message = new Message
                     {
-                        number = new List<string>()
+                        text = message.Content,
+                        receipts = new Receipts
+                        {
+                            number = new List<string>()
                         {
                             message.To
+                        }
                         }
                     }
                 }

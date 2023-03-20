@@ -1,8 +1,8 @@
-﻿using System.Web;
-using MultiSms.Helpers;
+﻿using MultiSms.Helpers;
 using MultiSms.Interfaces;
 using MultiSms.JetSms.Provider.Options;
 using MultiSms.Models;
+using System.Web;
 
 namespace MultiSms.JetSms.Provider;
 
@@ -107,8 +107,10 @@ public partial class JetSmsProvider
         var password = passwordProviderData.IsEmpty() ? _options.Password : passwordProviderData.GetValue<string>();
         var orginator = orginatorProviderData.IsEmpty() ? _options.Orginator : orginatorProviderData.GetValue<string>();
 
-        var builder = new UriBuilder(_options.BaseUrl);
-        builder.Path = "SMS-Web/HttpSmsSend";
+        var builder = new UriBuilder(_options.BaseUrl)
+        {
+            Path = "SMS-Web/HttpSmsSend"
+        };
 
         var query = HttpUtility.ParseQueryString(builder.Query);
         query["Username"] = username;

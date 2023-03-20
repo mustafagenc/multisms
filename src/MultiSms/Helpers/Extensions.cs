@@ -19,23 +19,19 @@ public static class Extensions
     {
         if (dataToSerialize == null) return null;
 
-        using (StringWriter stringwriter = new System.IO.StringWriter())
-        {
-            var serializer = new XmlSerializer(dataToSerialize.GetType());
-            serializer.Serialize(stringwriter, dataToSerialize);
-            return stringwriter.ToString();
-        }
+        using StringWriter stringwriter = new();
+        var serializer = new XmlSerializer(dataToSerialize.GetType());
+        serializer.Serialize(stringwriter, dataToSerialize);
+        return stringwriter.ToString();
     }
 
     public static T Deserialize<T>(this string xmlText)
     {
-        if (String.IsNullOrWhiteSpace(xmlText)) return default(T);
+        if (string.IsNullOrWhiteSpace(xmlText)) return default;
 
-        using (StringReader stringReader = new System.IO.StringReader(xmlText))
-        {
-            var serializer = new XmlSerializer(typeof(T));
-            return (T)serializer.Deserialize(stringReader);
-        }
+        using StringReader stringReader = new(xmlText);
+        var serializer = new XmlSerializer(typeof(T));
+        return (T)serializer.Deserialize(stringReader);
     }
 }
 

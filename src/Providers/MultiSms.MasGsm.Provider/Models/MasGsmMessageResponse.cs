@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MultiSms.MasGsm.Provider.Models;
+﻿namespace MultiSms.MasGsm.Provider.Models;
 
 public class MasGsmMessageResponse
 {

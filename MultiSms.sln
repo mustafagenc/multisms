@@ -13,33 +13,34 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.NetGsm.Provider", "src\Providers\MultiSms.NetGsm.Provider\MultiSms.NetGsm.Provider.csproj", "{9C232ED2-2BC6-44AF-94D4-B501A12BD75D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.IletiMerkezi.Provider", "src\Providers\MultiSms.IletiMerkezi.Provider\MultiSms.IletiMerkezi.Provider.csproj", "{A527E7D2-96FD-4715-BEC6-776462FF54E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.IletiMerkezi.Provider", "src\Providers\MultiSms.IletiMerkezi.Provider\MultiSms.IletiMerkezi.Provider.csproj", "{A527E7D2-96FD-4715-BEC6-776462FF54E6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution_items", "solution_items", "{4E7C22A7-3F99-4927-B481-6DAB5C008FD4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E7C22A7-3F99-4927-B481-6DAB5C008FD4}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		common.props = common.props
 		LICENSE = LICENSE
-		README.md = README.md
 		publish.sh = publish.sh
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.Twilio.Provider", "src\Providers\MultiSms.Twilio.Provider\MultiSms.Twilio.Provider.csproj", "{9AC88477-6B0E-4643-A698-949BD2F1136F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Test", "tests\MultiSms.Test\MultiSms.Test.csproj", "{5F924563-3915-45CE-B1B2-438B0215B6A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.Test", "tests\MultiSms.Test\MultiSms.Test.csproj", "{5F924563-3915-45CE-B1B2-438B0215B6A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Provider.Test", "tests\MultiSms.IletiMerkezi.Provider.Test\MultiSms.Provider.Test.csproj", "{9D3DA7EC-6990-4206-A55E-D515C00E72FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.Provider.Test", "tests\MultiSms.IletiMerkezi.Provider.Test\MultiSms.Provider.Test.csproj", "{9D3DA7EC-6990-4206-A55E-D515C00E72FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Mutlucell.Provider", "src\Providers\MultiSms.Mutlucell.Provider\MultiSms.Mutlucell.Provider.csproj", "{D5192C1B-DFAF-480F-B02F-C85715B98832}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.Mutlucell.Provider", "src\Providers\MultiSms.Mutlucell.Provider\MultiSms.Mutlucell.Provider.csproj", "{D5192C1B-DFAF-480F-B02F-C85715B98832}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.MasGsm.Provider", "src\Providers\MultiSms.MasGsm.Provider\MultiSms.MasGsm.Provider.csproj", "{512F2777-3F3D-404A-8559-11D78BBE474F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.MasGsm.Provider", "src\Providers\MultiSms.MasGsm.Provider\MultiSms.MasGsm.Provider.csproj", "{512F2777-3F3D-404A-8559-11D78BBE474F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.SmsVitrini.Provider", "src\Providers\MultiSms.SmsVitrini.Provider\MultiSms.SmsVitrini.Provider.csproj", "{33EBA862-E24D-46E3-940D-5CA072E54FE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.SmsVitrini.Provider", "src\Providers\MultiSms.SmsVitrini.Provider\MultiSms.SmsVitrini.Provider.csproj", "{33EBA862-E24D-46E3-940D-5CA072E54FE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.JetSms.Provider", "src\Providers\MultiSms.JetSms.Provider\MultiSms.JetSms.Provider.csproj", "{1880D908-213D-46F6-B1CE-B99ACB9EF199}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.JetSms.Provider", "src\Providers\MultiSms.JetSms.Provider\MultiSms.JetSms.Provider.csproj", "{1880D908-213D-46F6-B1CE-B99ACB9EF199}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{B3CE323B-EB21-45BD-89EB-DA216D7616D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSms.Mvc", "sample\MultiSms.Mvc\MultiSms.Mvc.csproj", "{E249F257-8AFB-4920-A405-11088B8E02CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSms.Mvc", "sample\MultiSms.Mvc\MultiSms.Mvc.csproj", "{E249F257-8AFB-4920-A405-11088B8E02CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

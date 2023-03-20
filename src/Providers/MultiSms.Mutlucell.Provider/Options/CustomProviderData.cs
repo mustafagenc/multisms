@@ -1,4 +1,4 @@
-﻿namespace MultiSms.NetGsm.Provider.Options;
+﻿namespace MultiSms.Mutlucell.Provider.Options;
 
 public static class CustomProviderData
 {

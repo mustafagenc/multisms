@@ -1,23 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MultiSms.Interfaces;
-using MultiSms.MasGsm.Provider;
 using MultiSms.Models;
+using MultiSms.Mutlucell.Provider;
 
 namespace MultiSms.Mvc.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class MasGsmController : ControllerBase
+public class MutlucellController : ControllerBase
 {
-    private readonly ILogger<MasGsmController> _logger;
+    private readonly ILogger<MutlucellController> _logger;
     private readonly ISmsService _smsService;
-    private readonly IMasGsmProvider _masGsmProvider;
+    private readonly IMutlucellProvider _mutlucellProvider;
 
-    public MasGsmController(ILogger<MasGsmController> logger, IMasGsmProvider masGsmProvider, ISmsService smsService)
+    public MutlucellController(ILogger<MutlucellController> logger, IMutlucellProvider mutlucellProvider, ISmsService smsService)
     {
         _logger = logger;
         _smsService = smsService;
-        _masGsmProvider = masGsmProvider;
+        _mutlucellProvider = mutlucellProvider;
     }
 
     [HttpGet]
@@ -28,7 +28,6 @@ public class MasGsmController : ControllerBase
             .WithContent("test message")
             .Build();
 
-        return await _masGsmProvider.SendAsync(message, cancellationToken);
+        return await _mutlucellProvider.SendAsync(message, cancellationToken);
     }
 }
-

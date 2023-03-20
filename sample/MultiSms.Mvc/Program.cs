@@ -39,6 +39,11 @@ builder.Services.AddMultiSms(options =>
     username: builder.Configuration.GetValue<string>("MultiSms:MasGsm:Username"),
     orginator: builder.Configuration.GetValue<string>("MultiSms:MasGsm:Orginator"),
     password: builder.Configuration.GetValue<string>("MultiSms:MasGsm:Password")
+)
+.UseMutlucell(
+    username: builder.Configuration.GetValue<string>("MultiSms:Mutlucell:Username"),
+    orginator: builder.Configuration.GetValue<string>("MultiSms:Mutlucell:Orginator"),
+    password: builder.Configuration.GetValue<string>("MultiSms:Mutlucell:Password")
 );
 
 var app = builder.Build();

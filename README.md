@@ -7,10 +7,12 @@
 - [x] [NetGSM](https://netgsm.com.tr/)
 - [x] [İleti Merkezi](https://iletimerkezi.com)
 - [x] [JetSms](https://jetsms.net)
-- [ ] [Mas GSM](https://masgsm.com.tr)
-- [ ] [SmsVitrini](https://smsvitrini.com)
 - [x] [Twilio](https://twilio.com)
 - [ ] [Mutlucell](https://mutlucell.com.tr)
+- [ ] [Mas GSM](https://masgsm.com.tr)
+- [ ] [SmsVitrini](https://smsvitrini.com)
+- [ ] [Vodafone](https://vodafone.com.tr)
+- [ ] [Get Sms](https://getsms.uz)
 
 ## 🔗 Links
 

@@ -83,6 +83,7 @@ public partial class MasGsmProvider
 
         var builder = new UriBuilder(_options.BaseUrl);
         builder.Path = "smsget/v1";
+        builder.Port = 8080;
 
         var query = HttpUtility.ParseQueryString(builder.Query);
         query["username"] = username;

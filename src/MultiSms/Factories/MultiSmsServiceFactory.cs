@@ -15,7 +15,9 @@ public partial class MultiSmsServiceFactory
     public MultiSmsServiceFactory UseOptions(Action<MultiSmsServiceOptions> options)
     {
         if (options is null)
+        {
             throw new ArgumentNullException(nameof(options));
+        }
 
         options(_options);
         _options.Validate();
@@ -26,7 +28,9 @@ public partial class MultiSmsServiceFactory
     public MultiSmsServiceFactory UseProvider(ISmsProvider provider)
     {
         if (provider is null)
+        {
             throw new ArgumentNullException(nameof(provider));
+        }
 
         _providers.Add(provider);
 

@@ -25,7 +25,9 @@ public class Composer
     public Composer Orginator(string orginator)
     {
         if (orginator is null)
+        {
             throw new ArgumentNullException(nameof(orginator));
+        }
 
         _orginator = orginator;
         return this;
@@ -36,7 +38,9 @@ public class Composer
     public Composer To(PhoneNumber phoneNumber)
     {
         if (phoneNumber is null)
+        {
             throw new ArgumentNullException(nameof(phoneNumber));
+        }
 
         _to = phoneNumber;
         return this;
@@ -47,7 +51,9 @@ public class Composer
     public Composer PassProviderData(params ProviderData[] data)
     {
         foreach (var item in data)
+        {
             _providerData.Add(item);
+        }
 
         return this;
     }

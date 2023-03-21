@@ -17,7 +17,9 @@ public partial class MessageBody
     public MessageBody(string content, string originator, PhoneNumber to, ICollection<ProviderData> providerData)
     {
         if (to is null)
+        {
             throw new ArgumentNullException(nameof(to));
+        }
 
         Content = content ?? string.Empty;
 

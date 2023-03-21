@@ -12,6 +12,8 @@ public class MultiSmsServiceOptions
     public void Validate()
     {
         if (!DefaultProvider.IsValid())
+        {
             throw new RequiredOptionException<MultiSmsServiceOptions>(nameof(DefaultProvider), "Varsayilan saglayiciyi secin.");
+        }
     }
 }

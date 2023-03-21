@@ -1,9 +1,11 @@
-﻿namespace MultiSms.Models;
+﻿using System.Text.RegularExpressions;
+
+namespace MultiSms.Models;
 
 /// <summary>
 /// 
 /// </summary>
-public sealed class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
+public sealed partial class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
 {
     private readonly string _phoneNumber;
 
@@ -16,12 +18,16 @@ public sealed class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
     public PhoneNumber(string phoneNumber)
     {
         if (phoneNumber is null)
+        {
             throw new ArgumentNullException(nameof(phoneNumber));
+        }
 
         if (string.IsNullOrEmpty(phoneNumber))
+        {
             throw new ArgumentException("Telefon numarasi bos olamaz.", nameof(phoneNumber));
+        }
 
-        _phoneNumber = phoneNumber;
+        _phoneNumber = PhoneRegex().Replace(phoneNumber, "$1");
     }
 
     /// <summary>
@@ -31,10 +37,25 @@ public sealed class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
     /// <returns></returns>
     public override bool Equals(object obj)
     {
-        if (obj is null) return false;
-        if (ReferenceEquals(this, obj)) return true;
-        if (obj is string stringValue) Equals(stringValue);
-        if (obj is PhoneNumber number) Equals(number);
+        if (obj is null)
+        {
+            return false;
+        }
+
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        if (obj is string stringValue)
+        {
+            Equals(stringValue);
+        }
+
+        if (obj is PhoneNumber number)
+        {
+            Equals(number);
+        }
 
         return false;
     }
@@ -77,4 +98,7 @@ public sealed class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
     public static bool operator ==(PhoneNumber left, PhoneNumber right) => EqualityComparer<PhoneNumber>.Default.Equals(left, right);
 
     public static bool operator !=(PhoneNumber left, PhoneNumber right) => !(left == right);
+
+    [GeneratedRegex("[\\D\\s]*(\\d[\\D\\s]*){10}")]
+    private static partial Regex PhoneRegex();
 }

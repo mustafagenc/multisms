@@ -30,8 +30,8 @@ builder.Services.AddMultiSms(options =>
     orginator: builder.Configuration.GetValue<string>("MultiSms:NetGsm:Orginator")
 )
 .UseIletiMerkezi(
-    username: builder.Configuration.GetValue<string>("MultiSms:IletiMerkezi:Username"),
-    password: builder.Configuration.GetValue<string>("MultiSms:IletiMerkezi:Password"),
+    key: builder.Configuration.GetValue<string>("MultiSms:IletiMerkezi:Key"),
+    hash: builder.Configuration.GetValue<string>("MultiSms:IletiMerkezi:Hash"),
     orginator: builder.Configuration.GetValue<string>("MultiSms:IletiMerkezi:Orginator")
 )
 .UseMasGsm(

@@ -27,15 +27,23 @@ public partial class SendingResult
         var stringbuilder = new StringBuilder($"{ProviderName} -> sending: ");
 
         if (IsSuccess)
+        {
             stringbuilder.Append("Succeeded");
+        }
         else
+        {
             stringbuilder.Append("Failed");
+        }
 
         if (!(_errors is null) && _errors.Count != 0)
+        {
             stringbuilder.Append($" | {_errors.Count} errors");
+        }
 
         if (MetaData.Count != 0)
+        {
             stringbuilder.Append($" | {MetaData.Count} meta-data");
+        }
 
         return stringbuilder.ToString();
     }
@@ -43,7 +51,9 @@ public partial class SendingResult
     public SendingResult AddError(SendingError error)
     {
         if (error is null)
+        {
             throw new ArgumentNullException(nameof(error));
+        }
 
         _errors.Add(error);
         return this;
@@ -61,7 +71,9 @@ public partial class SendingResult
     public TValue GetMetaData<TValue>(string key, TValue defaultValue = default)
     {
         if (MetaData.TryGetValue(key, out object value))
+        {
             return (TValue)value;
+        }
 
         return defaultValue;
     }

@@ -14,7 +14,9 @@ public readonly partial struct ProviderData : IEquatable<ProviderData>
         Value = value ?? throw new ArgumentNullException(nameof(value));
 
         if (!Key.IsValid())
+        {
             throw new ArgumentException("Key degeri bos.");
+        }
     }
 
     public static ProviderData New(string key, object value) => new(key, value);
@@ -27,8 +29,16 @@ public readonly partial struct ProviderData : IEquatable<ProviderData>
 
     public override bool Equals(object obj)
     {
-        if (obj is null) return false;
-        if (obj is ProviderData data) return Equals(data);
+        if (obj is null)
+        {
+            return false;
+        }
+
+        if (obj is ProviderData data)
+        {
+            return Equals(data);
+        }
+
         return false;
     }
 

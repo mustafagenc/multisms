@@ -1,4 +1,4 @@
-﻿using MultiSms.Interfaces;
+using MultiSms.Interfaces;
 using MultiSms.NetGsm.Provider;
 using MultiSms.NetGsm.Provider.Options;
 

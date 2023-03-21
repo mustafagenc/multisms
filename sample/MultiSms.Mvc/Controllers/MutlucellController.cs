@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using MultiSms.Interfaces;
 using MultiSms.Models;
 using MultiSms.Mutlucell.Provider;

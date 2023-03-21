@@ -1,4 +1,4 @@
-﻿using MultiSms.Interfaces;
+using MultiSms.Interfaces;
 using MultiSms.Models;
 
 namespace MultiSms.Factories;

@@ -8,4 +8,3 @@ public static class EnvironmentVariable
             ?? throw new ArgumentNullException(nameof(name), $"[{name}] adli degisken yuklenemedi");
     }
 }
-

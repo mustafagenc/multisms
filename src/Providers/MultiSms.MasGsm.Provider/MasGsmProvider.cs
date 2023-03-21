@@ -19,8 +19,6 @@ public partial class MasGsmProvider : IMasGsmProvider
         {
             var client = CreateClient();
 
-            //ToDo: sorun var duzenlecek
-            //https://www.masgsm.com.tr/files/api-dokumantasyonu.pdf
             using var request = new HttpRequestMessage(HttpMethod.Get, CreateUrl(message));
             using var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
 
@@ -81,9 +79,11 @@ public partial class MasGsmProvider
         var password = passwordProviderData.IsEmpty() ? _options.Password : passwordProviderData.GetValue<string>();
         var orginator = orginatorProviderData.IsEmpty() ? _options.Orginator : orginatorProviderData.GetValue<string>();
 
-        var builder = new UriBuilder(_options.BaseUrl);
-        builder.Path = "smsget/v1";
-        builder.Port = 8080;
+        var builder = new UriBuilder(_options.BaseUrl)
+        {
+            Path = "smsget/v1",
+            Port = 8080
+        };
 
         var query = HttpUtility.ParseQueryString(builder.Query);
         query["username"] = username;

@@ -7,20 +7,76 @@ The package is easy to use and includes support for various SMS providers such a
 
 ## 📞 Providers
 
-- [x] [NetGSM](https://netgsm.com.tr/)
-- [x] [İleti Merkezi](https://iletimerkezi.com)
-- [x] [JetSms](https://jetsms.net)
-- [x] [Twilio](https://twilio.com)
-- [ ] [Mutlucell](https://mutlucell.com.tr)
-- [ ] [Mas GSM](https://masgsm.com.tr)
-- [ ] [SmsVitrini](https://smsvitrini.com)
-- [ ] [Vodafone](https://vodafone.com.tr)
-- [ ] [Get Sms](https://getsms.uz)
+- [x] [NetGSM](https://www.nuget.org/packages/MultiSms.NetGsm.Provider/)
+- [x] [İleti Merkezi](https://www.nuget.org/packages/MultiSms.IletiMerkezi.Provider/)
+- [x] [JetSms](https://www.nuget.org/packages/MultiSms.JetSms.Provider/)
+- [x] [Twilio](https://www.nuget.org/packages/MultiSms.Twilio.Provider/)
+- [ ] [Mutlucell](https://www.nuget.org/packages/MultiSms.Mutlucell.Provider/)
+- [ ] [Mas GSM](https://www.nuget.org/packages/MultiSms.MasGsm.Provider/)
+- [ ] [SmsVitrini](https://www.nuget.org/packages/MultiSms.SmsVitrini.Provider/)
+- [ ] [Vodafone](#)
+- [ ] [Get Sms](#)
 
 ## 🔗 Links
 
 - [İleti Yönetim Sistemi](https://iys.org.tr)
 
-## 🛡️ License
+## Install
+Install ```NuGet\Install-Package MultiSms``` package using [NuGet](https://www.nuget.org/packages/MultiSms) to get started.
 
-MultiSms is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/mustafagenc/multisms/blob/main/LICENSE) file for details.
+## Sms Service
+```csharp
+  var _smsFactory = MultiSmsServiceFactory.Instance.UseOptions(options =>
+  {
+      options.DefaultOrginator = "test_orginator";
+      options.DefaultProvider = NetGsmProvider.Name;
+  })
+  .UseNetGsm("test_username", "test_password", "test_orginator")
+  .Create();
+
+  var message = MessageBody.Compose()
+      .To("+905325321221")
+      .WithContent("test message")
+      .Build();
+
+  var result = await _smsFactory.SendAsync(message);
+```
+
+## Dependency Injection
+```csharp
+builder.Services.AddMultiSms(options =>
+{
+    options.DefaultProvider = NetGsmProvider.Name;
+    options.DefaultOrginator = "test_orginator";
+})
+.UseNetGsm(
+    username: "test_username"
+    password: "test_password",
+    orginator: "test_orginator"
+);
+```
+
+```csharp
+public class NetGsmController : ControllerBase
+{
+    private readonly ILogger<NetGsmController> _logger;
+    private readonly ISmsService _smsService;
+
+    public NetGsmController(ILogger<NetGsmController> logger, ISmsService smsService)
+    {
+        _logger = logger;
+        _smsService = smsService;
+    }
+
+    [HttpGet]
+    public async Task<SendingResult> Send(CancellationToken cancellationToken)
+    {
+        var message = MessageBody.Compose()
+            .To("+905325321221")
+            .WithContent("test message")
+            .Build();
+
+        return await _smsService.SendAsync(message, cancellationToken);
+    }
+}
+```

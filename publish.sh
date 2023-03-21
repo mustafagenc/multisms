@@ -1,3 +1,4 @@
+#!/bin/sh/
 assets=()
 for asset in ./out/*.nupkg 
 do 
@@ -7,4 +8,4 @@ for asset in ./out/*.snupkg
 do 
 assets+=("$asset")
 done
-gh release upload $1 "${assets[@]}"
+gh release upload "$1" "${assets[@]}"

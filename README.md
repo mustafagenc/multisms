@@ -24,7 +24,9 @@ The package is easy to use and includes support for various SMS providers such a
 ## Install
 Install ```NuGet\Install-Package MultiSms``` package using [NuGet](https://www.nuget.org/packages/MultiSms) to get started.
 
-## Sms Service
+## Usage
+
+### Sms Service
 ```csharp
   var _smsFactory = MultiSmsServiceFactory.Instance.UseOptions(options =>
   {
@@ -42,7 +44,7 @@ Install ```NuGet\Install-Package MultiSms``` package using [NuGet](https://www.n
   var result = await _smsFactory.SendAsync(message);
 ```
 
-## Dependency Injection
+### Dependency Injection
 ```csharp
 builder.Services.AddMultiSms(options =>
 {

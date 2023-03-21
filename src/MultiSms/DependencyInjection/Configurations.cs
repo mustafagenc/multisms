@@ -14,7 +14,9 @@ public static class Configurations
     public static MultiSmsBuilder AddMultiSms(this IServiceCollection serviceCollection, Action<MultiSmsServiceOptions> config)
     {
         if (config is null)
+        {
             throw new ArgumentNullException(nameof(config));
+        }
 
         var configuration = new MultiSmsServiceOptions();
         config(configuration);

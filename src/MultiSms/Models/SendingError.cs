@@ -28,5 +28,8 @@ public class SendingError
 
     public Exception Exception { get; }
 
-    public override string ToString() => $"{Code} | {Message}";
+    public override string ToString()
+    {
+        return $"{Code} | {Message}";
+    }
 }

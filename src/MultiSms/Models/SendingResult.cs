@@ -60,7 +60,9 @@ public partial class SendingResult
     }
 
     public SendingResult AddError(Exception exception)
-        => AddError(new SendingError(exception));
+    {
+        return AddError(new SendingError(exception));
+    }
 
     public SendingResult AddMetaData(string key, object value)
     {
@@ -79,12 +81,12 @@ public partial class SendingResult
     }
 
     public static SendingResult Success(string providerName)
-        => new SendingResult(true, providerName);
-
-    public static SendingResult Failure(string providerName, params SendingError[] errors) => new(false, providerName);
-
-    public static class MetaDataKeys
     {
-        public const string SendingPaused = "sending_paused";
+        return new SendingResult(true, providerName);
+    }
+
+    public static SendingResult Failure(string providerName, params SendingError[] errors)
+    {
+        return new(false, providerName);
     }
 }

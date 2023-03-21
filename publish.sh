@@ -1,4 +1,4 @@
-#!/bin/sh/
+#!/bin/sh
 assets=()
 for asset in ./out/*.nupkg 
 do 

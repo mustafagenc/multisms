@@ -6,14 +6,14 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static class Configurations
 {
-    public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, string username, string password)
+    public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, string key, string hash)
     {
-        return builder.UseIletiMerkezi(username, password, null);
+        return builder.UseIletiMerkezi(key, hash, null);
     }
 
-    public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, string username, string password, string orginator)
+    public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, string key, string hash, string orginator)
     {
-        return builder.UseIletiMerkezi(options => { options.Username = username; options.Password = password; options.Orginator = orginator; });
+        return builder.UseIletiMerkezi(options => { options.Key = key; options.Hash = hash; options.Orginator = orginator; });
     }
 
     public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, Action<IletiMerkeziProviderOptions> config)

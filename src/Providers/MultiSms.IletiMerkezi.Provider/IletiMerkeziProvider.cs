@@ -49,7 +49,9 @@ public partial class IletiMerkeziProvider
     public IletiMerkeziProvider(HttpClient httpClient, IletiMerkeziProviderOptions options)
     {
         if (options is null)
+        {
             throw new ArgumentNullException(nameof(options));
+        }
 
         options.Validate();
         _options = options;
@@ -69,12 +71,12 @@ public partial class IletiMerkeziProvider
     public IletiMerkeziMessage CreateMessage(MessageBody message)
     {
         var data = message.ProviderData;
-        var userNameProviderData = data.GetData(CustomProviderData.Username);
-        var passwordProviderData = data.GetData(CustomProviderData.Password);
+        var keyProviderData = data.GetData(CustomProviderData.Key);
+        var hashProviderData = data.GetData(CustomProviderData.Hash);
         var orginatorProviderData = data.GetData(CustomProviderData.Orginator);
 
-        var username = userNameProviderData.IsEmpty() ? _options.Username : userNameProviderData.GetValue<string>();
-        var password = passwordProviderData.IsEmpty() ? _options.Password : passwordProviderData.GetValue<string>();
+        var key = keyProviderData.IsEmpty() ? _options.Key : keyProviderData.GetValue<string>();
+        var hash = hashProviderData.IsEmpty() ? _options.Hash : hashProviderData.GetValue<string>();
         var orginator = orginatorProviderData.IsEmpty() ? _options.Orginator : orginatorProviderData.GetValue<string>();
 
         var option = new IletiMerkeziMessage
@@ -83,8 +85,8 @@ public partial class IletiMerkeziProvider
             {
                 authentication = new Authentication
                 {
-                    username = username,
-                    password = password
+                    key = key,
+                    hash = hash
                 },
                 order = new Order
                 {

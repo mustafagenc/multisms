@@ -4,20 +4,26 @@ namespace MultiSms.IletiMerkezi.Provider.Options;
 
 public class IletiMerkeziProviderOptions
 {
-    public string Username { get; set; }
-    public string Password { get; set; }
+    public string Key { get; set; }
+    public string Hash { get; set; }
     public string Orginator { get; set; }
     public string BaseUrl { get; set; } = "https://api.iletimerkezi.com/";
 
     public void Validate()
     {
-        if (string.IsNullOrWhiteSpace(Username))
-            throw new RequiredOptionException<IletiMerkeziProviderOptions>($"{nameof(Username)}", "Kullanici adini girmelisiniz.");
+        if (string.IsNullOrWhiteSpace(Key))
+        {
+            throw new RequiredOptionException<IletiMerkeziProviderOptions>($"{nameof(Key)}", "API Anahtarıni girmelisiniz.");
+        }
 
-        if (string.IsNullOrWhiteSpace(Password))
-            throw new RequiredOptionException<IletiMerkeziProviderOptions>($"{nameof(Password)}", "Sifrenizi girmelisiniz.");
+        if (string.IsNullOrWhiteSpace(Hash))
+        {
+            throw new RequiredOptionException<IletiMerkeziProviderOptions>($"{nameof(Hash)}", "Hash girmelisiniz.");
+        }
 
         if (string.IsNullOrWhiteSpace(Orginator))
+        {
             throw new RequiredOptionException<IletiMerkeziProviderOptions>($"{nameof(Orginator)}", "Orginator girmelisiniz.");
+        }
     }
 }

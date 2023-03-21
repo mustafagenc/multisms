@@ -10,11 +10,11 @@ public class IletiMerkeziMessage
 
 public class Authentication
 {
-    [JsonPropertyName("username")]
-    public string username { get; set; }
+    [JsonPropertyName("key")]
+    public string key { get; set; }
 
-    [JsonPropertyName("password")]
-    public string password { get; set; }
+    [JsonPropertyName("hash")]
+    public string hash { get; set; }
 }
 
 public class Message

@@ -2,6 +2,9 @@
 
 [![Publish](https://github.com/mustafagenc/multisms/actions/workflows/publish.yml/badge.svg)](https://github.com/mustafagenc/multisms/actions/workflows/publish.yml) [![Version](https://img.shields.io/nuget/v/MultiSms?label=Nuget)](https://www.nuget.org/packages/MultiSms) [![MultiSms on fuget.org](https://www.fuget.org/packages/MultiSms/badge.svg)](https://www.fuget.org/packages/MultiSms) [![Download](https://img.shields.io/nuget/dt/MultiSms?label=Downloads&color=green&logo=nuget)](https://www.nuget.org/packages/MultiSms) [![License](https://img.shields.io/github/license/mustafagenc/multisms?label=License)](https://github.com/mustafagenc/multisms/blob/main/LICENSE) 
 
+Multi Sms Providers for .NET is a C# package designed to simplify the process of integrating multiple SMS service providers into your .NET application.
+The package is easy to use and includes support for various SMS providers such as Twilio, NetGSM, İleti Merkezi, JetSms, Mutlucell, Mas GSM and SmsVitrini.
+
 ## 📞 Providers
 
 - [x] [NetGSM](https://netgsm.com.tr/)

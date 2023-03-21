@@ -70,5 +70,4 @@ public class IletiMerkeziController : ControllerBase
 
         return result;
     }
-
 }

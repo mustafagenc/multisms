@@ -7,6 +7,10 @@
 	<PropertyGroup>
 		<Authors>Mustafa Genç</Authors>
 		<ProductName>Multi SMS</ProductName>
+    <Description>
+    Multi Sms Providers for .NET is a C# package designed to simplify the process of integrating multiple SMS service providers into your .NET application.
+    The package is easy to use and includes support for various SMS providers such as Twilio, NetGSM, İleti Merkezi, JetSms, Mutlucell, Mas GSM and SmsVitrini.
+    </Description>
 		<Copyright>Copyright © 2023</Copyright>
 		<MaintainerEmail>eposta@mustafagenc.info</MaintainerEmail>
 		<PackageTags>sms,sms-provider,sms-gateway,netgsm,iletimerkezi,twillo,smsvitrini,mutlucell,masgsm,jetsms</PackageTags>

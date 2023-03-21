@@ -78,5 +78,4 @@ public sealed class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
     public static bool operator ==(PhoneNumber left, PhoneNumber right) => EqualityComparer<PhoneNumber>.Default.Equals(left, right);
 
     public static bool operator !=(PhoneNumber left, PhoneNumber right) => !(left == right);
-
 }

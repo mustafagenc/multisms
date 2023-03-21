@@ -16,6 +16,4 @@ public class MasGsmMessage
 
     [JsonPropertyName("to")]
     public string To { get; set; }
-
 }
-

@@ -9,6 +9,8 @@ public class Composer
     private PhoneNumber _to;
     private readonly HashSet<ProviderData> _providerData;
 
+    public MessageBody Build() => new MessageBody(_bodyContent, _orginator, _to, _providerData);
+
     public Composer()
     {
         _providerData = new HashSet<ProviderData>();
@@ -49,7 +51,4 @@ public class Composer
 
         return this;
     }
-
-    public MessageBody Build() => new MessageBody(_bodyContent, _orginator, _to, _providerData);
-
 }

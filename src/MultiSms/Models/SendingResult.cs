@@ -75,6 +75,4 @@ public partial class SendingResult
     {
         public const string SendingPaused = "sending_paused";
     }
-
 }
-

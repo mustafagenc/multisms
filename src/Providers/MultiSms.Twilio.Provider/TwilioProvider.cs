@@ -9,7 +9,6 @@ namespace MultiSms.Twilio.Provider;
 
 public partial class TwilioProvider : ITwilioProvider
 {
-
     public SendingResult Send(MessageBody message)
     {
         try
@@ -48,7 +47,6 @@ public partial class TwilioProvider : ITwilioProvider
             return SendingResult.Failure(Name).AddError(ex);
         }
     }
-
 }
 
 public partial class TwilioProvider

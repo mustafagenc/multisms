@@ -46,5 +46,4 @@ public class IletiMerkeziController : ControllerBase
 
         return await _iletiMerkeziProvider.SendAsync(message, cancellationToken);
     }
-
 }

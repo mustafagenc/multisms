@@ -15,4 +15,3 @@ public class MultiSmsServiceOptions
             throw new RequiredOptionException<MultiSmsServiceOptions>(nameof(DefaultProvider), "Varsayilan saglayiciyi secin.");
     }
 }
-

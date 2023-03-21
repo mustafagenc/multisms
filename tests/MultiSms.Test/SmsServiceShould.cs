@@ -70,8 +70,4 @@ public class SmsServiceShould
             _ = new SmsService(new[] { _provider1 }, options);
         });
     }
-
-
-
 }
-

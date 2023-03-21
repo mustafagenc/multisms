@@ -50,5 +50,4 @@ public partial class MessageBody
     public void SetFrom(string originator) => Originator = originator;
 
     public static Composer Compose() => new();
-
 }

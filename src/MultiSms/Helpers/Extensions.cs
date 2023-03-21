@@ -34,4 +34,3 @@ public static class Extensions
         return (T)serializer.Deserialize(stringReader);
     }
 }
-

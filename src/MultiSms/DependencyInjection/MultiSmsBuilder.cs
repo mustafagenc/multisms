@@ -13,5 +13,4 @@ public class MultiSmsBuilder
     public IServiceCollection ServiceCollection { get; }
 
     public MultiSmsServiceOptions Configuration { get; }
-
 }

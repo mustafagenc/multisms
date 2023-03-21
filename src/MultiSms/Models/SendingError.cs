@@ -30,4 +30,3 @@ public class SendingError
 
     public override string ToString() => $"{Code} | {Message}";
 }
-

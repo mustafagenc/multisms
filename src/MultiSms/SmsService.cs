@@ -105,5 +105,4 @@ public partial class SmsService : ISmsService
             message.SetFrom(Options.DefaultOrginator);
         }
     }
-
 }

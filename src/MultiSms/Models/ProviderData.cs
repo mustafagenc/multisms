@@ -42,5 +42,4 @@ public readonly partial struct ProviderData : IEquatable<ProviderData>
     public static bool operator ==(ProviderData left, ProviderData right) => EqualityComparer<ProviderData>.Default.Equals(left, right);
 
     public static bool operator !=(ProviderData left, ProviderData right) => !(left == right);
-
 }

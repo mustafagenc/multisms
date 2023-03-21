@@ -56,39 +56,11 @@ public partial class SmsVitriniProvider
     private static SendingResult BuildResultObject(HttpResponseMessage result)
     {
         using var content = result.Content.ReadAsStringAsync();
-        var code = content.Result.Split('=')[1].Replace("\n", "");
+        var code = content.Result;
 
-        if (code == "-5")
+        if (code == "-1")
         {
             return SendingResult.Failure(Name).AddError(new SendingError("-5", "Login hatası: Username, Password, Orginator uyumsuzluğu"));
-        }
-        else if (code == "-6")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("-6", "Girilen bir kısım veride hata oluştu"));
-        }
-        else if (code == "-7")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("-7", "SendDate bugünden büyük ve geçerli bir tarih olmalıdır"));
-        }
-        else if (code == "-8")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("-8", "En azından bir Msisdn bilgisi verilmelidir"));
-        }
-        else if (code == "-9")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("-9", "En azından bir Message değeri verilmelidir"));
-        }
-        else if (code == "-10")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("-10", "Birden fazla Msisdn e farklı mesaj gönderimi için, Msisdn ve Message sayıları aynı olmadır"));
-        }
-        else if (code == "-15")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("-15", "Sistem hatası"));
-        }
-        else if (code == "-99")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("-99", "Bilinmeyen Hata"));
         }
         else
         {

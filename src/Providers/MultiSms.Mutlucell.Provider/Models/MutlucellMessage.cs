@@ -5,7 +5,6 @@ namespace MultiSms.Mutlucell.Provider.Models;
 [XmlRoot(ElementName = "mesaj")]
 public class Mesaj
 {
-
     [XmlElement(ElementName = "metin")]
     public string Metin { get; set; }
 
@@ -16,7 +15,6 @@ public class Mesaj
 [XmlRoot(ElementName = "smspack")]
 public class MutlucellMessage
 {
-
     [XmlElement(ElementName = "mesaj")]
     public List<Mesaj> Mesaj { get; set; }
 
@@ -34,5 +32,4 @@ public class MutlucellMessage
 
     [XmlAttribute(AttributeName = "charset")]
     public string Charset { get; set; }
-
 }

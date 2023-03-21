@@ -31,4 +31,3 @@ public class MasGsmController : ControllerBase
         return await _masGsmProvider.SendAsync(message, cancellationToken);
     }
 }
-

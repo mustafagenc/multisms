@@ -38,6 +38,4 @@ public class RequiredOptionException<TOptions> : Exception
     /// 
     /// </summary>
     public Type OptionsType => typeof(TOptions);
-
 }
-

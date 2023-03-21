@@ -96,10 +96,10 @@ public partial class IletiMerkeziProvider
                         text = message.Content,
                         receipts = new Receipts
                         {
-                            number = new List<string>()
-                        {
-                            message.To
-                        }
+                            number = new List<string>
+                            {
+                                message.To
+                            }
                         }
                     }
                 }

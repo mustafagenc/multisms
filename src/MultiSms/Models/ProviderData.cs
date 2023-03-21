@@ -2,7 +2,7 @@
 
 namespace MultiSms.Models;
 
-public readonly partial struct ProviderData : IEquatable<ProviderData>
+public readonly struct ProviderData : IEquatable<ProviderData>
 {
     public string Key { get; }
 

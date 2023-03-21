@@ -2,7 +2,7 @@
 
 namespace MultiSms.Models;
 
-public partial class SendingResult
+public class SendingResult
 {
     public bool IsSuccess { get; }
 

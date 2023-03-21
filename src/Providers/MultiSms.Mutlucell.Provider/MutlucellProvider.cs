@@ -114,10 +114,9 @@ public partial class MutlucellProvider
             Pwd = password,
             Org = orginator,
             Charset = "turkish",
-
-            Mesaj = new List<Mesaj>()
+            Mesaj = new List<Mesaj>
             {
-                new Mesaj()
+                new Mesaj
                 {
                     Metin = message.Content,
                     Nums = message.To

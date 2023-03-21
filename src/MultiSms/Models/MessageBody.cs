@@ -5,7 +5,7 @@ namespace MultiSms.Models;
 /// <summary>
 /// 
 /// </summary>
-public partial class MessageBody
+public class MessageBody
 {
     /// <summary>
     /// 

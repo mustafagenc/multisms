@@ -3,7 +3,7 @@ using MultiSms.Models;
 
 namespace MultiSms.Factories;
 
-public partial class MultiSmsServiceFactory
+public class MultiSmsServiceFactory
 {
     private readonly MultiSmsServiceOptions _options = new();
     private readonly HashSet<ISmsProvider> _providers = new();

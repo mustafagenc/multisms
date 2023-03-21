@@ -4,7 +4,7 @@ using MultiSms.Models;
 
 namespace MultiSms;
 
-public partial class SmsService : ISmsService
+public class SmsService : ISmsService
 {
     public MultiSmsServiceOptions Options { get; }
     public IEnumerable<ISmsProvider> Providers => _providers.Values;

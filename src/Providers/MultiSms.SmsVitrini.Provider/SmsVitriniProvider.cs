@@ -86,7 +86,6 @@ public partial class SmsVitriniProvider
         query["Username"] = username;
         query["Password"] = password;
         query["Originator"] = orginator;
-
         query["Msisdns"] = message.To.ToString();
         query["Messages"] = message.Content;
 

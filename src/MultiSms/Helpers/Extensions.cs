@@ -24,13 +24,4 @@ public static class Extensions
         serializer.Serialize(stringwriter, dataToSerialize);
         return stringwriter.ToString();
     }
-
-    public static T Deserialize<T>(this string xmlText)
-    {
-        if (string.IsNullOrWhiteSpace(xmlText)) return default;
-
-        using StringReader stringReader = new(xmlText);
-        var serializer = new XmlSerializer(typeof(T));
-        return (T)serializer.Deserialize(stringReader);
-    }
 }

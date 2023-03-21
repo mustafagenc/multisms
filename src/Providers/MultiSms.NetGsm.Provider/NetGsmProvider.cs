@@ -100,20 +100,21 @@ public partial class NetGsmProvider
         var password = passwordProviderData.IsEmpty() ? _options.Password : passwordProviderData.GetValue<string>();
         var orginator = orginatorProviderData.IsEmpty() ? _options.Orginator : orginatorProviderData.GetValue<string>();
 
-        var option = new NetGsmMessage();
-        option.Header = new Header
+        var option = new NetGsmMessage
         {
-            Company = new Company { Dil = "TR", Text = "Netgsm" },
-            Usercode = username,
-            Password = password,
-            Type = "1:n",
-            Msgheader = orginator
-        };
-
-        option.Body = new Body
-        {
-            Msg = message.Content,
-            No = message.To
+            Header = new Header
+            {
+                Company = new Company { Dil = "TR", Text = "Netgsm" },
+                Usercode = username,
+                Password = password,
+                Type = "1:n",
+                Msgheader = orginator
+            },
+            Body = new Body
+            {
+                Msg = message.Content,
+                No = message.To
+            }
         };
 
         return option;

@@ -24,10 +24,7 @@ public class RequiredOptionException<TOptions> : Exception
     /// </summary>
     /// <param name="info"></param>
     /// <param name="context"></param>
-    protected RequiredOptionException(SerializationInfo info, StreamingContext context) : base(info, context)
-    {
-
-    }
+    protected RequiredOptionException(SerializationInfo info, StreamingContext context) : base(info, context) { }
 
     /// <summary>
     /// 

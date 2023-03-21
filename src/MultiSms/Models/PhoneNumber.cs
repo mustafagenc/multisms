@@ -21,7 +21,6 @@ public sealed class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
         if (string.IsNullOrEmpty(phoneNumber))
             throw new ArgumentException("Telefon numarasi bos olamaz.", nameof(phoneNumber));
 
-
         _phoneNumber = phoneNumber;
     }
 

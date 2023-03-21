@@ -4,7 +4,6 @@ namespace MultiSms.MasGsm.Provider.Models;
 
 public class MasGsmMessage
 {
-
     [JsonPropertyName("originator")]
     public string Originator { get; set; }
 

@@ -2,13 +2,11 @@
 
 namespace MultiSms.Interfaces;
 
-public interface ISmsProvider
-{
-    string Name {
-        get;
-    }
+public interface ISmsProvider {
+  string Name { get; }
 
-    SendingResult Send(MessageBody message);
+  SendingResult Send(MessageBody message);
 
-    Task<SendingResult> SendAsync(MessageBody message, CancellationToken cancellationToken);
+  Task<SendingResult> SendAsync(MessageBody message,
+                                CancellationToken cancellationToken);
 }

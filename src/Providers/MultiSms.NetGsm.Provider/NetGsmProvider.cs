@@ -62,30 +62,15 @@ public partial class NetGsmProvider
     {
         using var content = result.Content.ReadAsStringAsync();
         var code = content.Result;
+        var error = NetGsmMessageResponse.Result(code);
 
         if (code == "00" || code == "01" || code == "02")
         {
             return SendingResult.Success(Name).AddMetaData("response", result);
         }
-        else if (code == "20")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("20", "Mesaj metninde ki problemden dolayı gönderilemediğini veya standart maksimum mesaj karakter sayısını geçti."));
-        }
-        else if (code == "30")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("30", "Geçersiz kullanıcı adı , şifre veya kullanıcınızın API erişim iznininiz bulunmamakta."));
-        }
-        else if (code == "40")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("40", "Mesaj başlığınızın (gönderici adınızın) sistemde tanımlı değil."));
-        }
-        else if (code == "70")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("70", "Hatalı sorgulama. Gönderdiğiniz parametrelerden birisi hatalı veya zorunlu alanlardan birinin eksik."));
-        }
         else
         {
-            return SendingResult.Failure(Name).AddError(new SendingError("80", "Bilinmeyen bir hata oluştu"));
+            return SendingResult.Failure(Name).AddError(new SendingError(code, error));
         }
     }
 

@@ -62,34 +62,11 @@ public partial class MutlucellProvider
     {
         using var content = result.Content.ReadAsStringAsync();
         var code = content.Result;
+        var error = MutlucellMessageResponse.Result(code);
 
-        if (code == "20")
+        if (!string.IsNullOrEmpty(error))
         {
-            return SendingResult.Failure(Name).AddError(new SendingError("20", "Xml eksik veya hatalı."));
-        }
-        else if (code == "21")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("21", "Kullanılan originatöre sahip değilsiniz."));
-        }
-        else if (code == "22")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("22", "Kontörünüz yetersiz."));
-        }
-        else if (code == "23")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("23", "Kullanıcı adı ya da parolanız hatalı."));
-        }
-        else if (code == "24")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("24", "Şu anda size ait başka bir işlem aktif."));
-        }
-        else if (code == "25")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("25", "SMSC Stopped (Bu hatayı alırsanız, işlemi 1-2 dk sonra tekrar deneyin)"));
-        }
-        else if (code == "30")
-        {
-            return SendingResult.Failure(Name).AddError(new SendingError("30", "Hesap Aktivasyonu sağlanmamış"));
+            return SendingResult.Failure(Name).AddError(new SendingError(code, error));
         }
         else
         {

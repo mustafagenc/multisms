@@ -20,7 +20,9 @@ public partial class MutlucellProvider : IMutlucellProvider
         {
             var client = CreateClient();
 
-            using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) { Path = "smsgw-ws/sndblke" }.Uri);
+            using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) {
+                Path = "smsgw-ws/sndblke"
+            } .Uri);
             using var xmlContent = new StringContent(CreateMessage(message).Serialize(), Encoding.UTF8, "application/xml");
 
             request.Content = xmlContent;

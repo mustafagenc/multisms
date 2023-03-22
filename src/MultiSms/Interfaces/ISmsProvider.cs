@@ -4,7 +4,9 @@ namespace MultiSms.Interfaces;
 
 public interface ISmsProvider
 {
-    string Name { get; }
+    string Name {
+        get;
+    }
 
     SendingResult Send(MessageBody message);
 

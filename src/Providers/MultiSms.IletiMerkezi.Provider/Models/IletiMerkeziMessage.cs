@@ -5,50 +5,83 @@ namespace MultiSms.IletiMerkezi.Provider.Models;
 public class IletiMerkeziMessage
 {
     [JsonPropertyName("request")]
-    public Request request { get; set; }
+    public Request request {
+        get;
+        set;
+    }
 }
 
 public class Authentication
 {
     [JsonPropertyName("key")]
-    public string key { get; set; }
+    public string key {
+        get;
+        set;
+    }
 
     [JsonPropertyName("hash")]
-    public string hash { get; set; }
+    public string hash {
+        get;
+        set;
+    }
 }
 
 public class Message
 {
     [JsonPropertyName("text")]
-    public string text { get; set; }
+    public string text {
+        get;
+        set;
+    }
 
     [JsonPropertyName("receipts")]
-    public Receipts receipts { get; set; }
+    public Receipts receipts {
+        get;
+        set;
+    }
 }
 
 public class Order
 {
     [JsonPropertyName("sender")]
-    public string sender { get; set; }
+    public string sender {
+        get;
+        set;
+    }
 
     [JsonPropertyName("sendDateTime")]
-    public List<string> sendDateTime { get; set; }
+    public List<string> sendDateTime {
+        get;
+        set;
+    }
 
     [JsonPropertyName("message")]
-    public Message message { get; set; }
+    public Message message {
+        get;
+        set;
+    }
 }
 
 public class Receipts
 {
     [JsonPropertyName("number")]
-    public List<string> number { get; set; }
+    public List<string> number {
+        get;
+        set;
+    }
 }
 
 public class Request
 {
     [JsonPropertyName("authentication")]
-    public Authentication authentication { get; set; }
+    public Authentication authentication {
+        get;
+        set;
+    }
 
     [JsonPropertyName("order")]
-    public Order order { get; set; }
+    public Order order {
+        get;
+        set;
+    }
 }

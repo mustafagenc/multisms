@@ -3,12 +3,12 @@
 namespace MultiSms.Models;
 
 /// <summary>
-/// 
+///
 /// </summary>
 public class MessageBody
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="content"></param>
     /// <param name="originator"></param>
@@ -32,22 +32,33 @@ public class MessageBody
     /// <summary>
     /// Gonderilecek mesaj
     /// </summary>
-    public string Content { get; set; }
+    public string Content {
+        get;
+        set;
+    }
 
     /// <summary>
     /// Gonderen bilgisi
     /// </summary>
-    public string Originator { get; set; }
+    public string Originator {
+        get;
+        set;
+    }
 
     /// <summary>
     /// Gonderilecek numara
     /// </summary>
-    public PhoneNumber To { get; }
+    public PhoneNumber To {
+        get;
+    }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
-    public ICollection<ProviderData> ProviderData { get; set; }
+    public ICollection<ProviderData> ProviderData {
+        get;
+        set;
+    }
 
     public void SetFrom(string originator) => Originator = originator;
 

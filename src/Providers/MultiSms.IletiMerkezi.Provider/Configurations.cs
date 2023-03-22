@@ -13,7 +13,11 @@ public static class Configurations
 
     public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, string key, string hash, string orginator)
     {
-        return builder.UseIletiMerkezi(options => { options.Key = key; options.Hash = hash; options.Orginator = orginator; });
+        return builder.UseIletiMerkezi(options => {
+            options.Key = key;
+            options.Hash = hash;
+            options.Orginator = orginator;
+        });
     }
 
     public static MultiSmsBuilder UseIletiMerkezi(this MultiSmsBuilder builder, Action<IletiMerkeziProviderOptions> config)

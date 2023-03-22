@@ -22,11 +22,17 @@ public class SendingError
         Exception = exception ?? throw new ArgumentNullException(nameof(exception));
     }
 
-    public string Code { get; }
+    public string Code {
+        get;
+    }
 
-    public string Message { get; }
+    public string Message {
+        get;
+    }
 
-    public Exception Exception { get; }
+    public Exception Exception {
+        get;
+    }
 
     public override string ToString()
     {

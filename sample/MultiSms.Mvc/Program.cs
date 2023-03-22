@@ -3,10 +3,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("cors",
-        builder => builder.WithOrigins("http://localhost")
-        .AllowAnyMethod()
-        .AllowAnyHeader()
-        .AllowCredentials());
+                      builder => builder.WithOrigins("http://localhost")
+                      .AllowAnyMethod()
+                      .AllowAnyHeader()
+                      .AllowCredentials());
 });
 
 builder.Services.AddControllers();

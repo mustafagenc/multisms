@@ -4,11 +4,17 @@ namespace MultiSms.Models;
 
 public class SendingResult
 {
-    public bool IsSuccess { get; }
+    public bool IsSuccess {
+        get;
+    }
 
-    public string ProviderName { get; }
+    public string ProviderName {
+        get;
+    }
 
-    public IDictionary<string, object> MetaData { get; }
+    public IDictionary<string, object> MetaData {
+        get;
+    }
 
     public IEnumerable<SendingError> Errors => _errors;
 

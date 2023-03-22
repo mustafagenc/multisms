@@ -7,7 +7,11 @@ public static class IletiMerkeziMultiSmsServiceFactoryExtensions
 {
     public static MultiSmsServiceFactory UseIletiMerkezi(this MultiSmsServiceFactory builder, string key, string hash, string orginator)
     {
-        return builder.UseIletiMerkezi(options => { options.Key = key; options.Hash = hash; options.Orginator = orginator; });
+        return builder.UseIletiMerkezi(options => {
+            options.Key = key;
+            options.Hash = hash;
+            options.Orginator = orginator;
+        });
     }
 
     public static MultiSmsServiceFactory UseIletiMerkezi(this MultiSmsServiceFactory builder, Action<IletiMerkeziProviderOptions> config)

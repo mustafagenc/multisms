@@ -21,7 +21,9 @@ public partial class IletiMerkeziProvider : IIletiMerkeziProvider
         {
             var client = CreateClient();
 
-            using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) { Path = "v1/send-sms/json" }.Uri);
+            using var request = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(_options.BaseUrl) {
+                Path = "v1/send-sms/json"
+            } .Uri);
             using var jsonContent = new StringContent(JsonConvert.SerializeObject(CreateMessage(message)), Encoding.UTF8, "application/json");
 
             request.Content = jsonContent;
@@ -64,8 +66,8 @@ public partial class IletiMerkeziProvider
     private static SendingResult BuildResultObject(HttpResponseMessage result)
     {
         return result.IsSuccessStatusCode
-            ? SendingResult.Success(Name).AddMetaData("response", result)
-            : SendingResult.Failure(Name).AddError(new SendingError(result.StatusCode.ToString(), result.ReasonPhrase));
+               ? SendingResult.Success(Name).AddMetaData("response", result)
+               : SendingResult.Failure(Name).AddError(new SendingError(result.StatusCode.ToString(), result.ReasonPhrase));
     }
 
     public IletiMerkeziMessage CreateMessage(MessageBody message)

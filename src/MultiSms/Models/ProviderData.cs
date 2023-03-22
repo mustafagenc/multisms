@@ -4,9 +4,13 @@ namespace MultiSms.Models;
 
 public readonly struct ProviderData : IEquatable<ProviderData>
 {
-    public string Key { get; }
+    public string Key {
+        get;
+    }
 
-    public object Value { get; }
+    public object Value {
+        get;
+    }
 
     public ProviderData(string key, object value)
     {

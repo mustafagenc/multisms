@@ -3,14 +3,14 @@
 namespace MultiSms.Models;
 
 /// <summary>
-/// 
+///
 /// </summary>
 public sealed partial class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<string>
 {
     private readonly string _phoneNumber;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="phoneNumber"></param>
     /// <exception cref="ArgumentNullException"></exception>
@@ -31,7 +31,7 @@ public sealed partial class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<st
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="obj"></param>
     /// <returns></returns>
@@ -61,7 +61,7 @@ public sealed partial class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<st
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="other"></param>
     /// <returns></returns>
@@ -71,7 +71,7 @@ public sealed partial class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<st
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="other"></param>
     /// <returns></returns>
@@ -86,7 +86,7 @@ public sealed partial class PhoneNumber : IEquatable<PhoneNumber>, IEquatable<st
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <returns></returns>
     public override string ToString() => _phoneNumber;

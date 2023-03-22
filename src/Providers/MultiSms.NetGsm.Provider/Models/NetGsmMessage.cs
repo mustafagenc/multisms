@@ -3,7 +3,7 @@
 namespace MultiSms.NetGsm.Provider.Models;
 
 [XmlRoot(ElementName = "mainbody")]
-public partial class NetGsmMessage
+public class NetGsmMessage
 {
     [XmlElement(ElementName = "header")]
     public Header Header { get; set; }

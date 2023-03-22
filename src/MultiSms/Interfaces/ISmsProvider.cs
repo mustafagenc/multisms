@@ -8,5 +8,5 @@ public interface ISmsProvider
 
     SendingResult Send(MessageBody message);
 
-    Task<SendingResult> SendAsync(MessageBody message, CancellationToken cancellationToken = default);
+    Task<SendingResult> SendAsync(MessageBody message, CancellationToken cancellationToken);
 }
